@@ -1,0 +1,44 @@
+Actores
+
+-Usuario Anónimo 
+-Usuario
+
+Casos de Uso
+
+-- Registro
+
+--- Iniciar Sesión 
+--- Registrarse
+--- Cerrar Sesion 
+--- Recuperar Contraseña
+
+-- Viaje 
+
+--- CRUD Viaje
+--- Añadir usuario al viaje
+--- Eliminar usuario del viaje
+
+-- Plan 
+
+--- CRUD Plan
+--- Valorar Plan
+--- Añadir (crear) Horario
+--- Añadir (crear) Ubicación
+--- Añadir (crear) Ticket
+--- Añadir (crear) Pago
+
+-- Horario 
+
+--- CRUD Horario
+
+-- Ubicación 
+
+--- CRUD Ubicación
+
+-- Ticket 
+
+--- CRUD Ticket
+
+-- Pago 
+
+--- CRUD Pago

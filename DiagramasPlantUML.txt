@@ -1,0 +1,27 @@
+@startuml
+
+left to right direction
+
+actor "Usuario Anonimo" as anonimo
+actor Usuario as usuario
+
+rectangle "Gestion de Usuarios" {
+    usecase "Iniciar Sesión" as iniciar_sesion
+    usecase "Registrarse" as registrarse
+    usecase "Cerrar Sesión" as cerrar_sesion
+    usecase "Recuperar Contraseña" as recuperar_contraseña
+    usecase "Borrar Usuario" as borrar_usuario
+    usecase "Editar Perfil" as editar_perfil
+
+    anonimo --> iniciar_sesion
+    anonimo --> registrarse
+    usuario --> cerrar_sesion
+    usuario --> recuperar_contraseña
+    usuario --> borrar_usuario
+    usuario --> editar_perfil
+}
+
+@enduml
+
+
+----------------------
