@@ -1,9 +1,128 @@
-<mxfile host="app.diagrams.net" modified="2024-03-22T12:21:48.052Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" version="24.0.7" etag="Oe5iNECFm1Fc0YKc5IHn" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-22T12:57:24.165Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="I3vaxLdDKjFCM8OdPi6h" version="24.0.7" type="github">
   <diagram name="Página-1" id="3BcABoZRZELFH-3AMzTQ">
-    <mxGraphModel>
+    <mxGraphModel dx="1764" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="OPLBx7YsduZqqvef9SV5-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-1" target="OPLBx7YsduZqqvef9SV5-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-1" value="&lt;b&gt;TFM: aplicación web para la gestión de viajes en grupo&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A4B3FC;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="315" y="60" width="330" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-2" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Inicio&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="350" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430.2857142857142" y="780.952380952381" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-3" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Análisis y diseño&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="430" y="160" width="350" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-5" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Implementación&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-6" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Pruebas&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-7" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Despliegue&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="50.23529411764707" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-17" value="Encontrar actores y casos de uso" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="220" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="50" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-18" value="Priorizar casos de uso" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="50" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-19" value="Detallar casos de uso" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="430" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="50.19047619047615" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-20" value="Estructurar casos de uso" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="530" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="50" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-21" value="Prototipar interfaz de usuario" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="640" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-23" value="&lt;ul&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Identificar actores del sistema&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Recopilar requisitos de actores&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Identificar casos de uso principales&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-20" y="270" width="335" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-25" value="&lt;ul&gt;&lt;li&gt;Establecer criterios de prioridad&lt;br&gt;&lt;/li&gt;&lt;li&gt;Priorizar casos de uso según criterios&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="367" width="265" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-30" value="&lt;ul&gt;&lt;li&gt;Definir flujos de trabajo para cada caso de uso&lt;br&gt;&lt;/li&gt;&lt;li&gt;Crear modelos de casos de uso&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="470" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-31" value="&lt;ul&gt;&lt;li&gt;Organizar casos de uso en paquetes&lt;br&gt;&lt;/li&gt;&lt;li&gt;Desarrollar diagramas en casos de uso&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="560" width="290" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-34" value="&lt;ul&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Diseñar wireframe para apartado de perfil de usuario&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Diseñar wireframe para apartado de previaje&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Diseñar wireframe para apartado de mapa&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;[...]&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="690" width="330" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-2" target="OPLBx7YsduZqqvef9SV5-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-37">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="439.80952380952385" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-37" value="Análisis de la arquitectura" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="220" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="439.80952380952385" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-39" value="Análisis de casos de uso" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="330" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-40">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="439.80952380952385" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-40" value="Análisis de clase" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="430" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-41" value="&lt;ul&gt;&lt;li&gt;Definir la arquitectura técnica del sistema&lt;/li&gt;&lt;li&gt;Seleccionar frameworks y librerías&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="260" width="265" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-44" value="&lt;ul&gt;&lt;li&gt;Refinar casos de uso para el apartado de perfil de usuario&lt;/li&gt;&lt;li&gt;Refinar casos de uso para el apartado de mapa&lt;/li&gt;&lt;li&gt;[...]&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="380" width="380" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
