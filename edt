@@ -1,14 +1,29 @@
-<mxfile host="app.diagrams.net" modified="2024-03-22T12:57:24.165Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="I3vaxLdDKjFCM8OdPi6h" version="24.0.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-22T13:20:40.393Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="LWo7Xueu5oTYs7O3HlzH" version="24.0.7" type="github">
   <diagram name="Página-1" id="3BcABoZRZELFH-3AMzTQ">
-    <mxGraphModel dx="1764" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1722" dy="606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="OPLBx7YsduZqqvef9SV5-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-1" target="OPLBx7YsduZqqvef9SV5-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-1" target="OPLBx7YsduZqqvef9SV5-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-1" target="OPLBx7YsduZqqvef9SV5-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-1" target="OPLBx7YsduZqqvef9SV5-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-1" target="OPLBx7YsduZqqvef9SV5-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-1" target="OPLBx7YsduZqqvef9SV5-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="OPLBx7YsduZqqvef9SV5-1" value="&lt;b&gt;TFM: aplicación web para la gestión de viajes en grupo&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A4B3FC;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="315" y="60" width="330" height="60" as="geometry" />
+          <mxGeometry x="1050" y="50" width="470" height="60" as="geometry" />
         </mxCell>
         <mxCell id="OPLBx7YsduZqqvef9SV5-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-2">
           <mxGeometry relative="1" as="geometry">
@@ -18,22 +33,37 @@
         <mxCell id="OPLBx7YsduZqqvef9SV5-2" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Inicio&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="40" y="160" width="350" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="OPLBx7YsduZqqvef9SV5-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-3">
+        <mxCell id="OPLBx7YsduZqqvef9SV5-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-3">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="430.2857142857142" y="780.952380952381" as="targetPoint" />
+            <mxPoint x="430" y="620" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="OPLBx7YsduZqqvef9SV5-3" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Análisis y diseño&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="430" y="160" width="350" height="40" as="geometry" />
+        <mxCell id="OPLBx7YsduZqqvef9SV5-3" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Análisis&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="430" y="160" width="370" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1240" y="570" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="OPLBx7YsduZqqvef9SV5-5" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Implementación&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="1060" y="180" width="120" height="60" as="geometry" />
+          <mxGeometry x="1241" y="160" width="370" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1654" y="520" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="OPLBx7YsduZqqvef9SV5-6" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Pruebas&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="1230" y="180" width="120" height="60" as="geometry" />
+          <mxGeometry x="1654" y="160" width="369" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2040" y="650" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="OPLBx7YsduZqqvef9SV5-7" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;strong style=&quot;border: 0px solid rgb(227, 227, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,0.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;&quot;&gt;Despliegue&lt;/strong&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="1400" y="180" width="120" height="60" as="geometry" />
+          <mxGeometry x="2040" y="160" width="356" height="40" as="geometry" />
         </mxCell>
         <mxCell id="OPLBx7YsduZqqvef9SV5-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-17">
           <mxGeometry relative="1" as="geometry">
@@ -122,6 +152,136 @@
         </mxCell>
         <mxCell id="OPLBx7YsduZqqvef9SV5-44" value="&lt;ul&gt;&lt;li&gt;Refinar casos de uso para el apartado de perfil de usuario&lt;/li&gt;&lt;li&gt;Refinar casos de uso para el apartado de mapa&lt;/li&gt;&lt;li&gt;[...]&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="420" y="380" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-49" value="&lt;ul&gt;&lt;li&gt;Definir clases para el módulo de votaciones&lt;/li&gt;&lt;li&gt;Definir clases para el módulo de planes&lt;/li&gt;&lt;li&gt;[...]&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="480" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-51">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="827" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-51" value="&lt;p style=&quot;text-align: start; border: 0px solid rgb(227, 227, 227); box-sizing: border-box; margin: 0px;&quot;&gt;&lt;b&gt;Diseño&lt;/b&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="827" y="160" width="370" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-53">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="841.7142857142858" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-53" value="Diseño de la arquitectura" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="842" y="220" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-55" value="&lt;ul&gt;&lt;li&gt;Diseño de la estructura de la BD con PostgreSQL&lt;/li&gt;&lt;li&gt;Diseño de la arquitectura del Backend con Spring&lt;/li&gt;&lt;li&gt;Diseño de la arquitectura del Frontend con Angular&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="827" y="270" width="333" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-56">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="839.8095238095239" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-56" value="Diseño de casos de uso" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="337" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-59" value="&lt;ul&gt;&lt;li&gt;Desarrollar el diseño detallado para el reparto de gastos&lt;/li&gt;&lt;li&gt;Desarrollar el diseño detallado para la propuesta de viaje&lt;/li&gt;&lt;li&gt;[...]&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="822" y="380" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-61">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1256" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-61" value="Implementación de la arquitectura" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1256" y="220" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-62">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1256" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-62" value="Integración de sistemas" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1256" y="337" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-63">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1256" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-63" value="Implementación de clases" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1256" y="440" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-65" value="&lt;ul&gt;&lt;li&gt;Configurar el entorno de desarrollo en Angular&lt;/li&gt;&lt;li&gt;Configurar el entorno de desarrollo en Spring&lt;/li&gt;&lt;li&gt;Implementar la estructura inicial del proyecto&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1241" y="270" width="333" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-67" value="&lt;ul&gt;&lt;li&gt;Integrar el frontend con el backend&lt;/li&gt;&lt;li&gt;Integrar la base de datos con la aplicación&lt;/li&gt;&lt;li&gt;Integrar las librerías con los frameworks&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1236" y="380" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-69" value="&lt;ul&gt;&lt;li&gt;Codificar clases para la autenticación de usuarios&lt;/li&gt;&lt;li&gt;Codificar clases para el álbum de recuerdos&lt;/li&gt;&lt;li&gt;[...]&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1236" y="490" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-72" value="Elaboración de pruebas unitarias" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1668.5" y="220" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-73" value="Elaboración de pruebas de Sistemas" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1668.5" y="290" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-74" value="Elaboración de pruebas de Integración" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1668.5" y="360" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-75">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1668.230769230769" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-75" value="Evaluación de pruebas" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1668.5" y="430" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-76" value="&lt;ul&gt;&lt;li&gt;Análisis de los resultados de las pruebas de sistemas&lt;/li&gt;&lt;li&gt;Análisis de los resultados de las pruebas de integración&lt;/li&gt;&lt;li&gt;Análisis de los resultados de las pruebas unitarias&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1654" y="470" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-79">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2056" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-79" value="Preparar entorno de producción" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2056" y="220" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-81" value="&lt;ul&gt;&lt;li&gt;Preparación de servidores de producción&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="2034" y="260" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-82">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2054" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-82" value="Desplegar aplicación" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2054" y="330" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-84" value="&lt;ul&gt;&lt;li&gt;Desplegar frontend&lt;/li&gt;&lt;li&gt;Desplegar backend&lt;/li&gt;&lt;li&gt;Propagar cambios en base de datos&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="2036" y="370" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-85">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2054" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-85" value="Verificación post-despliegue" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2054" y="440" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-87" value="&lt;ul&gt;&lt;li&gt;Realizar pruebas superficiales post-despliegue&lt;/li&gt;&lt;li&gt;Monitorear rendimiento en entorno de producción&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="2040" y="480" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="OPLBx7YsduZqqvef9SV5-88">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2054" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-88" value="Realización de pruebas con usuarios" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2054" y="540" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OPLBx7YsduZqqvef9SV5-90" value="&lt;ul&gt;&lt;li&gt;Realizar pruebas UI/UX&lt;/li&gt;&lt;li&gt;Pedir feedback&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="2040" y="585" width="380" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
