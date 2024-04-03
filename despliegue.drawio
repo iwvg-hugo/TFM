@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-03T22:07:33.530Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="HiLDKIDc0xnUVhiGoO0h" version="24.2.1" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-03T22:09:53.013Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="WZvadvPCSiCD-RqNv88u" version="24.2.1" type="github">
   <diagram name="Página-1" id="LKuQfen41EyOqSIA_ddR">
     <mxGraphModel dx="984" dy="1836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -47,7 +47,7 @@
         <mxCell id="k5OJNTYzSq0aA97NthWQ-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="k5OJNTYzSq0aA97NthWQ-18" target="k5OJNTYzSq0aA97NthWQ-20">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="k5OJNTYzSq0aA97NthWQ-51" value="Actions Notifications" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="k5OJNTYzSq0aA97NthWQ-43">
+        <mxCell id="k5OJNTYzSq0aA97NthWQ-51" value="Notificaciones de&amp;nbsp;&lt;div&gt;Github Actions&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="k5OJNTYzSq0aA97NthWQ-43">
           <mxGeometry x="-0.0971" y="-2" relative="1" as="geometry">
             <mxPoint x="6" y="-3" as="offset" />
           </mxGeometry>
