@@ -1,0 +1,46 @@
+name: Spring Core - Tests
+
+on:
+  push:
+    branches: 
+      - main  
+      - '*-*[0-9]'
+
+jobs:
+  test:
+    name: Test - Unit & Integration & SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'temurin' 
+      - name: Unit & Integration Tests
+        run: mvn -B verify
+        working-directory: TripPlanner
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      - name: Slack WebHook
+        if: always()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: 'repo,author,commit,author,workflow'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Sonar
+        if: success()
+        run: mvn -B sonar:sonar -Dsonar.projectKey=es.upm.miw:betca-tpv-core -Dsonar.organization=miw-upm-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        working-directory: TripPlanner
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}-${{ github.run_number }}
+          restore-keys: ${{ runner.os }}-m2
