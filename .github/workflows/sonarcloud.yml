@@ -33,7 +33,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Sonar
         if: success()
-        run: mvn -B sonar:sonar -Dsonar.projectKey=es.upm.miw:betca-tpv-core -Dsonar.organization=miw-upm-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: mvn -B sonar:sonar -Dsonar.projectKey=iwvg-hugo_TFM -Dsonar.organization=iwvg-hugo -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         working-directory: TripPlanner
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
