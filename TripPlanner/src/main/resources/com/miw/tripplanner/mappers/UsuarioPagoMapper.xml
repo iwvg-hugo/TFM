@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miw.tripplanner.mappers.UsuarioPagoMapper">
+
+        <select id="getAllUsuariosPagos">
+            SELECT *
+            FROM usuarios_pagos
+        </select>
+
+        <select id="getUsuarioPago">
+            SELECT *
+            FROM usuarios_pagos
+            WHERE id = #{id}
+        </select>
+
+        <insert id="createUsuarioPago" parameterType="com.miw.tripplanner.dtos.UsuarioPagoDto">
+            INSERT INTO usuarios_pagos (id_usuario, id_pago)
+            VALUES (#{idUsuario}, #{idPago})
+        </insert>
+
+        <update id="updateUsuarioPago" parameterType="com.miw.tripplanner.dtos.UsuarioPagoDto">
+            UPDATE usuarios_pagos
+            SET id_usuario = #{usuarioPagoDto.idUsuario}, id_pago = #{usuarioPagoDto.idPago}
+            WHERE id = #{id}
+        </update>
+
+        <delete id="deleteUsuarioPago">
+            DELETE FROM usuarios_pagos
+            WHERE id = #{id}
+        </delete>
+
+</mapper>
