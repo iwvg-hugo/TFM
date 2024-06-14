@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miw.tripplanner.mappers.HorarioMapper">
+
+    <select id="getAllHorarios">
+        SELECT *
+        FROM horarios
+    </select>
+
+    <select id="getHorario">
+        SELECT *
+        FROM horarios
+        WHERE id = #{id}
+    </select>
+
+    <select id="createHorario" parameterType="com.miw.tripplanner.dtos.HorarioDto">
+        INSERT INTO horarios (inicio, fin)
+        VALUES (#{inicio}, #{fin})
+        RETURNING id
+    </select>
+
+    <update id="updateHorario" parameterType="com.miw.tripplanner.dtos.HorarioDto">
+        UPDATE horarios
+        SET inicio = #{horarioDto.inicio}, fin = #{horarioDto.fin}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteHorario">
+        DELETE FROM horarios
+        WHERE id = #{id}
+    </delete>
+
+</mapper>
