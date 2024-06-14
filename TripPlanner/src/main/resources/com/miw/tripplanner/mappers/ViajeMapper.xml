@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miw.tripplanner.mappers.ViajeMapper">
+
+    <select id="getAllViajes">
+        SELECT *
+        FROM viajes
+    </select>
+
+    <select id="getViaje">
+        SELECT *
+        FROM viajes
+        WHERE id = #{id}
+    </select>
+
+    <select id="createViaje" parameterType="com.miw.tripplanner.dtos.ViajeDto">
+        INSERT INTO viajes (id_horario)
+        VALUES (#{idHorario})
+        RETURNING id
+    </select>
+
+    <update id="updateViaje" parameterType="com.miw.tripplanner.dtos.ViajeDto">
+        UPDATE viajes
+        SET id_horario = #{viajeDto.id_horario}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteViaje">
+        DELETE FROM viajes
+        WHERE id = #{id}
+    </delete>
+
+    <select id="findViajesByUserId" parameterType="com.miw.tripplanner.dtos.UsuarioDto">
+        SELECT v.*
+        FROM viajes v
+        JOIN usuarios_viajes uv ON v.id = uv.id_viaje
+        WHERE uv.id_usuario = #{id}
+    </select>
+
+</mapper>
