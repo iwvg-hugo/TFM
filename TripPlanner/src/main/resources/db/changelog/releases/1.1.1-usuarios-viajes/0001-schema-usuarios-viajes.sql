@@ -2,7 +2,7 @@
 
 --changeset tripPlanner:0010-schema-RelacionUsuariosViajes
 
-CREATE TABLE RelacionUsuariosViajes (
+CREATE TABLE Usuarios_Viajes (
     id_usuario INTEGER NOT NULL,
     id_viaje INTEGER NOT NULL,
     PRIMARY KEY (id_usuario, id_viaje),

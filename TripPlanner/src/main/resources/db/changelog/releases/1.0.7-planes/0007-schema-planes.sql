@@ -9,8 +9,8 @@ CREATE TABLE Planes (
     id_pago INTEGER,
     nombre VARCHAR(255),
     importancia INTEGER,
+    descripcion TEXT,
     CONSTRAINT fk_plan_viaje FOREIGN KEY (id_viaje) REFERENCES Viajes(id),
     CONSTRAINT fk_plan_ubicacion FOREIGN KEY (id_ubicacion) REFERENCES Ubicaciones(id),
-    CONSTRAINT fk_plan_horario FOREIGN KEY (id_horario) REFERENCES Horarios(id),
-    CONSTRAINT fk_plan_pago FOREIGN KEY (id_pago) REFERENCES Pagos(id)
+    CONSTRAINT fk_plan_horario FOREIGN KEY (id_horario) REFERENCES Horarios(id)
 );

@@ -5,5 +5,7 @@ CREATE TABLE Ubicaciones (
     id SERIAL PRIMARY KEY,
     es_exterior BOOLEAN NOT NULL DEFAULT FALSE,
     tipo_vestimenta TEXT,
-    requisitos VARCHAR(255)[]
+    requisitos VARCHAR(255)[],
+    direccion VARCHAR(255),
+    coordenadas VARCHAR(255)
 );

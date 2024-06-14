@@ -1,7 +1,7 @@
 --liquibase formatted sql
 
 --changeset tripPlanner:0011-schema-RelacionUsuariosPagos
-CREATE TABLE RelacionUsuariosPagos (
+CREATE TABLE Usuarios_Pagos (
     id_usuario INTEGER NOT NULL,
     id_pago INTEGER NOT NULL,
     pagador BOOLEAN NOT NULL DEFAULT FALSE,

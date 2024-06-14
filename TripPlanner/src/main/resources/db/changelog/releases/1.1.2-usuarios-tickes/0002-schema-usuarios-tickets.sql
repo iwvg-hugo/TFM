@@ -1,7 +1,7 @@
 --liquibase formatted sql
 
 --changeset tripPlanner:0002-schema-Usuarios-Tickets
-CREATE TABLE RelacionUsuariosTickets (
+CREATE TABLE Usuarios_Tickets (
     id_usuario INTEGER NOT NULL,
     id_ticket INTEGER NOT NULL,
     PRIMARY KEY (id_usuario, id_ticket),
