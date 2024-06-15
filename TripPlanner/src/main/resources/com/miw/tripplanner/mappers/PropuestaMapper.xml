@@ -31,7 +31,7 @@
             WHERE id = #{id}
         </delete>
 
-        <delete id="deletePropuestaByIdViaje">
+        <delete id="deletePropuestasByIdViaje">
             DELETE FROM propuestas
             WHERE id_viaje = #{id}
         </delete>

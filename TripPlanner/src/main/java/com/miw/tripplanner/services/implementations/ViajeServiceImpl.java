@@ -55,7 +55,7 @@ public class ViajeServiceImpl implements ViajeService {
     public Integer createViaje(Integer idUsuario, ViajeDto viajeDto) {
         viajeDto.setIdHorario(horarioMapper.createHorario(new HorarioDto()));
         Integer id = viajeMapper.createViaje(viajeDto);
-        usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idUsuario, id) );
+        usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idUsuario, id));
         return id;
     }
 
@@ -66,10 +66,11 @@ public class ViajeServiceImpl implements ViajeService {
 
     @Override
     public void deleteViaje(Integer id) {
-        horarioMapper.deleteHorario(viajeMapper.getViaje(id).getIdHorario());
+        ViajeDto viajeABorrar = viajeMapper.getViaje(id);
         propuestaMapper.deletePropuestasByIdViaje(id);
         usuarioViajeMapper.deleteUsuariosViajesByIdViaje(id);
         planService.deletePlanesByIdViaje(id);
         viajeMapper.deleteViaje(id);
+        horarioMapper.deleteHorario(viajeABorrar.getIdHorario());
     }
 }

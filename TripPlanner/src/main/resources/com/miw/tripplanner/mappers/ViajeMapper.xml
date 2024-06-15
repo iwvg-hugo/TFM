@@ -20,9 +20,9 @@
         RETURNING id
     </select>
 
-    <update id="updateViaje" parameterType="com.miw.tripplanner.dtos.ViajeDto">
+    <update id="updateViaje">
         UPDATE viajes
-        SET id_horario = #{viajeDto.id_horario}
+        SET id_horario = #{idHorario}
         WHERE id = #{id}
     </update>
 
