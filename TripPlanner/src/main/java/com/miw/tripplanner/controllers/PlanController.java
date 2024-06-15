@@ -1,6 +1,7 @@
 package com.miw.tripplanner.controllers;
 
 import com.miw.tripplanner.dtos.PlanDto;
+import com.miw.tripplanner.dtos.detalle.PlanDetalleDto;
 import com.miw.tripplanner.services.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class PlanController {
     }
 
     @GetMapping("/{id}")
-    public PlanDto getPlan(@PathVariable Integer id) {
+    public PlanDetalleDto getPlan(@PathVariable Integer id) {
         return planService.getPlan(id);
     }
 
@@ -40,7 +41,7 @@ public class PlanController {
     }
 
     @GetMapping("/viaje/{idViaje}")
-    public List<PlanDto> getPlanesByIdViaje(@PathVariable Integer idViaje) {
+    public List<PlanDetalleDto> getPlanesByIdViaje(@PathVariable Integer idViaje) {
         return planService.getPlanesByIdViaje(idViaje);
     }
 }

@@ -35,5 +35,11 @@
             DELETE FROM propuestas
             WHERE id_viaje = #{id}
         </delete>
+    
+        <select id="findPropuestasByIdViaje">
+            SELECT *
+            FROM propuestas
+            WHERE id_viaje = #{idViaje}
+        </select>
 
 </mapper>
