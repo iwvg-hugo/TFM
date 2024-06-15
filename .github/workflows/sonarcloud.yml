@@ -44,3 +44,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - name: List Jacoco Report Files
+        run: ls -l TripPlanner/target/site/jacoco
+        working-directory: TripPlanner
