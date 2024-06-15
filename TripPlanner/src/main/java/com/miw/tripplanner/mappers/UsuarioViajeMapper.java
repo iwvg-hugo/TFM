@@ -11,5 +11,6 @@ public interface UsuarioViajeMapper {
     UsuarioViajeDto getUsuarioViaje(Integer id);
     Integer createUsuarioViaje(UsuarioViajeDto usuarioViajeDto);
     void updateUsuarioViaje(Integer id, UsuarioViajeDto usuarioViajeDto);
-    void deleteUsuarioViaje(Integer id);
+    void deleteUsuarioViaje(Integer idUsuario, Integer idViaje);
+    void deleteUsuariosViajesByIdViaje(Integer idViaje);
 }

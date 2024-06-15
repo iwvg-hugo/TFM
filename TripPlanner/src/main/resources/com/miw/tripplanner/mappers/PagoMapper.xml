@@ -30,5 +30,4 @@
             DELETE FROM pagos
             WHERE id = #{id}
         </delete>
-
 </mapper>

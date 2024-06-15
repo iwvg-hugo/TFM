@@ -27,7 +27,12 @@
 
         <delete id="deleteUsuarioTicket">
             DELETE FROM usuarios_tickets
-            WHERE id = #{id}
+            WHERE id_usuario = #{idUsuario} and id_ticket = #{idTicket}
+        </delete>
+
+        <delete id="deleteUsuarioTicketByIdTicket">
+            DELETE FROM usuarios_tickets
+            WHERE id_ticket = #{id}
         </delete>
 
 </mapper>

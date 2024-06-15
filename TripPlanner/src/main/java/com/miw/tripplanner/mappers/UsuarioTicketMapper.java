@@ -8,8 +8,8 @@ import java.util.List;
 @Mapper
 public interface UsuarioTicketMapper {
     List<UsuarioTicketDto> getAllUsuariosTickets();
-    UsuarioTicketDto getUsuarioTicket(Integer id);
+    UsuarioTicketDto getUsuarioTicket(Integer idUsuario, Integer idTicket);
     Integer createUsuarioTicket(UsuarioTicketDto usuarioTicketDto);
-    void updateUsuarioTicket(Integer id, UsuarioTicketDto usuarioTicketDto);
-    void deleteUsuarioTicket(Integer id);
+    void deleteUsuarioTicket(Integer idUsuario, Integer idTicket);
+    void deleteUsuarioTicketByIdTicket(Integer idTicket);
 }

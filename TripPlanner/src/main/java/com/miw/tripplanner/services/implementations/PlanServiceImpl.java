@@ -3,9 +3,7 @@ package com.miw.tripplanner.services.implementations;
 import com.miw.tripplanner.dtos.HorarioDto;
 import com.miw.tripplanner.dtos.PlanDto;
 import com.miw.tripplanner.dtos.UbicacionDto;
-import com.miw.tripplanner.mappers.HorarioMapper;
-import com.miw.tripplanner.mappers.PlanMapper;
-import com.miw.tripplanner.mappers.UbicacionMapper;
+import com.miw.tripplanner.mappers.*;
 import com.miw.tripplanner.services.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +21,12 @@ public class PlanServiceImpl implements PlanService {
 
     @Autowired
     private HorarioMapper horarioMapper;
+
+    @Autowired
+    private TicketMapper ticketMapper;
+
+    @Autowired
+    private PagoServiceImpl pagoServiceImpl;
 
     @Override
     public List<PlanDto> getAllPlanes() {
@@ -48,6 +52,24 @@ public class PlanServiceImpl implements PlanService {
 
     @Override
     public void deletePlan(Integer id) {
+        PlanDto plan = planMapper.getPlan(id);
+        ticketMapper.deleteTicketsByIdPlan(id);
+        pagoServiceImpl.deletePago(id);
         planMapper.deletePlan(id);
+        horarioMapper.deleteHorario(plan.getIdHorario());
+        ubicacionMapper.deleteUbicacion(plan.getIdUbicacion());
+    }
+
+    @Override
+    public void deletePlanesByIdViaje(Integer idViaje) {
+        List<PlanDto> planes = planMapper.getPlanesByIdViaje(idViaje);
+        for (PlanDto plan : planes) {
+            deletePlan(plan.getId());
+        }
+    }
+
+    @Override
+    public List<PlanDto> getPlanesByIdViaje(Integer idViaje) {
+        return planMapper.getPlanesByIdViaje(idViaje);
     }
 }

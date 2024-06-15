@@ -12,6 +12,6 @@ public interface PlanMapper {
     Integer createPlan(PlanDto planDto);
     void updatePlan(Integer id, PlanDto planDto);
     void deletePlan(Integer id);
-
+    List<PlanDto> getPlanesByIdViaje(Integer idViaje);
 
 }

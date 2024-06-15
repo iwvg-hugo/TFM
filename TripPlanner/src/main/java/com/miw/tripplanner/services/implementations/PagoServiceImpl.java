@@ -42,6 +42,7 @@ public class PagoServiceImpl implements PagoService {
     }
 
     public void deletePago(Integer id) {
+        usuarioPagoMapper.deleteUsuarioPagoByIdPago(id);
         pagoMapper.deletePago(id);
     }
 }

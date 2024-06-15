@@ -31,4 +31,9 @@
             WHERE id = #{id}
         </delete>
 
+        <delete id="deletePropuestaByIdViaje">
+            DELETE FROM propuestas
+            WHERE id_viaje = #{id}
+        </delete>
+
 </mapper>

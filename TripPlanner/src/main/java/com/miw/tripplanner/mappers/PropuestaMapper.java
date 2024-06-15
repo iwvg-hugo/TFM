@@ -11,4 +11,5 @@ public interface PropuestaMapper {
     Integer createPropuesta(PropuestaDto propuestaDto);
     void updatePropuesta(Integer id, PropuestaDto propuestaDto);
     void deletePropuesta(Integer id);
+    void deletePropuestasByIdViaje(Integer idViaje);
 }
