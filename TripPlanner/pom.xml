@@ -148,10 +148,15 @@
                         </goals>
                         <configuration>
                             <destFile>${project.build.directory}/jacoco-merged.exec</destFile>
-                            <files>
-                                <file>${project.build.directory}/jacoco.exec</file>
-                                <file>${project.build.directory}/jacoco-it.exec</file>
-                            </files>
+                            <fileSets>
+                                <fileSet>
+                                    <directory>${project.build.directory}</directory>
+                                    <includes>
+                                        <include>**/jacoco.exec</include>
+                                        <include>**/jacoco-it.exec</include>
+                                    </includes>
+                                </fileSet>
+                            </fileSets>
                         </configuration>
                     </execution>
                 </executions>
