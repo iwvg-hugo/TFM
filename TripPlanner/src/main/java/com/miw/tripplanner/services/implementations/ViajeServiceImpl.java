@@ -3,9 +3,7 @@ package com.miw.tripplanner.services.implementations;
 import com.miw.tripplanner.dtos.HorarioDto;
 import com.miw.tripplanner.dtos.UsuarioViajeDto;
 import com.miw.tripplanner.dtos.ViajeDto;
-import com.miw.tripplanner.mappers.HorarioMapper;
-import com.miw.tripplanner.mappers.UsuarioViajeMapper;
-import com.miw.tripplanner.mappers.ViajeMapper;
+import com.miw.tripplanner.mappers.*;
 import com.miw.tripplanner.services.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +21,12 @@ public class ViajeServiceImpl implements ViajeService {
 
     @Autowired
     private HorarioMapper horarioMapper;
+
+    @Autowired
+    private PropuestaMapper propuestaMapper;
+
+    @Autowired
+    private PlanServiceImpl planService;
 
     @Override
     public List<ViajeDto> getAllViajes() {
@@ -54,6 +58,10 @@ public class ViajeServiceImpl implements ViajeService {
 
     @Override
     public void deleteViaje(Integer id) {
+        horarioMapper.deleteHorario(viajeMapper.getViajeById(id).getIdHorario());
+        propuestaMapper.deletePropuestasByIdViaje(id);
+        usuarioViajeMapper.deleteUsuariosViajesByIdViaje(id);
+        planService.deletePlanesByIdViaje(id);
         viajeMapper.deleteViaje(id);
     }
 }
