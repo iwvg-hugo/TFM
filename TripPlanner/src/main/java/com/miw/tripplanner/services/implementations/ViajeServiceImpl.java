@@ -35,7 +35,7 @@ public class ViajeServiceImpl implements ViajeService {
 
     @Override
     public ViajeDto getViaje(Integer id) {
-        return viajeMapper.getViajeById(id);
+        return viajeMapper.getViaje(id);
     }
 
     @Override
