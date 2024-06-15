@@ -127,7 +127,7 @@
                             <!-- When running as a Maven plugin, the JaCoCo agent configuration is prepared by invoking the prepare-agent
                             or prepare-agent-integration goals, before the actual tests are run. This sets a property named argLine which
                             points to the JaCoCo agent, later passed as a JVM argument to the test runner -->
-                            <argLine></argLine>
+                            <argLine>${itCoverageAgent}</argLine>
                         </configuration>
                     </execution>
                 </executions>
@@ -157,6 +157,7 @@
                         <phase>pre-integration-test</phase>
                         <configuration>
                             <propertyName>itCoverageAgent</propertyName>
+                            <destFile>${project.build.directory}/jacoco-it.exec</destFile>
                         </configuration>
                     </execution>
                     <execution>
