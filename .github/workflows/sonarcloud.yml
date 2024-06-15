@@ -29,12 +29,6 @@ jobs:
         working-directory: TripPlanner
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
-      - name: List Jacoco Report Files
-        run: |
-          ls -l target/site/jacoco
-          ls -l target/site/jacoco-it
-          ls -l target/site/jacoco-merged
-        working-directory: TripPlanner
       - name: Sonar
         if: success()
         run: mvn -B sonar:sonar -Dspring.profiles.active=test -Dsonar.projectKey=iwvg-hugo_TFM -Dsonar.organization=iwvg-hugo -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco-merged/jacoco.xml        
