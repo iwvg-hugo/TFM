@@ -93,13 +93,15 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>3.0.0-M5</version>
                 <configuration>
                     <skipTests>false</skipTests>
                     <excludes>
                         <exclude>**/*IT.java</exclude>
                     </excludes>
-                    <forkCount>1</forkCount>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
                 </configuration>
             </plugin>
 
@@ -124,7 +126,7 @@
                             <!-- When running as a Maven plugin, the JaCoCo agent configuration is prepared by invoking the prepare-agent
                             or prepare-agent-integration goals, before the actual tests are run. This sets a property named argLine which
                             points to the JaCoCo agent, later passed as a JVM argument to the test runner -->
-                            <argLine></argLine>
+                            <argLine>${itCoverageAgent}</argLine>
                         </configuration>
                     </execution>
                 </executions>
@@ -138,7 +140,7 @@
                 <version>${jacoco.version}</version>
                 <executions>
                     <execution>
-                        <id>default-prepare-agent</id>
+                        <id>prepare-unit-tests</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -147,13 +149,14 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>prepare-agent-integration</id>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                         <phase>pre-integration-test</phase>
                         <configuration>
-                            <propertyName>itCoverageAngent</propertyName>
+                            <propertyName>itCoverageAgent</propertyName>
+                            <destFile>${project.build.directory}/jacoco-it.exec</destFile>
                         </configuration>
                     </execution>
                     <execution>
