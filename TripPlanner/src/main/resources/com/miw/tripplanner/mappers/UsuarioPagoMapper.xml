@@ -34,5 +34,11 @@
             DELETE FROM usuarios_pagos
             WHERE id_pago = #{id}
         </delete>
+    
+        <select id="findUsuariosPagosByIdPago">
+            SELECT *
+            FROM usuarios_pagos
+            WHERE id_pago = #{idPago}
+        </select>
 
 </mapper>

@@ -36,7 +36,7 @@
             WHERE id_viaje = #{idViaje}
         </delete>
 
-        <select id="getPlanesByViaje">
+        <select id="getPlanesByIdViaje">
             SELECT *
             FROM planes
             WHERE id_viaje = #{idViaje}

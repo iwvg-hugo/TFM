@@ -12,4 +12,5 @@ public interface PropuestaMapper {
     void updatePropuesta(Integer id, PropuestaDto propuestaDto);
     void deletePropuesta(Integer id);
     void deletePropuestasByIdViaje(Integer idViaje);
+    List<PropuestaDto> findPropuestasByIdViaje(Integer idViaje);
 }

@@ -1,6 +1,7 @@
 package com.miw.tripplanner.controllers;
 
 import com.miw.tripplanner.dtos.PagoDto;
+import com.miw.tripplanner.dtos.detalle.PagoDetalleDto;
 import com.miw.tripplanner.dtos.requests.PagoRequest;
 import com.miw.tripplanner.services.PagoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class PagoController {
     }
 
     @GetMapping("/{id}")
-    public PagoDto getPago(@PathVariable Integer id) {
+    public PagoDetalleDto getPago(@PathVariable Integer id) {
         return pagoService.getPago(id);
     }
 
