@@ -40,8 +40,8 @@ public class PlanController {
         planService.deletePlan(id);
     }
 
-    @GetMapping("/viaje/{idViaje}")
-    public List<PlanDetalleDto> getPlanesByIdViaje(@PathVariable Integer idViaje) {
-        return planService.getPlanesByIdViaje(idViaje);
+    @GetMapping("/search")
+    public List<PlanDetalleDto> findPlanesByIdViaje(@RequestParam(value = "idViaje", required = true) Integer idViaje) {
+        return planService.findPlanesByIdViaje(idViaje);
     }
 }
