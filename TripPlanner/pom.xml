@@ -103,6 +103,7 @@
                         <include>**/*Test.java</include>
                     </includes>
                     <forkCount>1</forkCount>
+                    <argLine>${itCoverageAgent}</argLine>
                 </configuration>
             </plugin>
 
