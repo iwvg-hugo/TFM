@@ -89,23 +89,53 @@
         </dependency>
     </dependencies>
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
+            <!-- Plugin para tests unitarios -->
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <skipTests>false</skipTests>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
             </plugin>
+            <!-- Plugin para tests de integración -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <skipTests>false</skipTests>
+                    <includes>
+                        <include>**/*IT.java</include>
+                    </includes>
+                    <systemPropertyVariables>
+                        <spring.profiles.active>test</spring.profiles.active>
+                    </systemPropertyVariables>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-verify</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Plugin para Jacoco -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -176,32 +206,15 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Plugin para el compilador de Maven -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.1.2</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
                 <configuration>
-                    <includes>
-                        <include>**/*IT.java</include>
-                    </includes>
-                    <systemPropertyVariables>
-                        <spring.profiles.active>test</spring.profiles.active>
-                    </systemPropertyVariables>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>default-integration-test</id>
-                        <goals>
-                            <goal>integration-test</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>default-verify</id>
-                        <goals>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
