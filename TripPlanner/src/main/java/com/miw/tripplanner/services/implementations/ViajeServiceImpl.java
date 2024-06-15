@@ -41,7 +41,7 @@ public class ViajeServiceImpl implements ViajeService {
         viajeDetalle.setId(viaje.getId());
         viajeDetalle.setHorario(this.horarioMapper.getHorario(viaje.getIdHorario()));
         viajeDetalle.setPropuestas(this.propuestaMapper.findPropuestasByIdViaje(viaje.getId()));
-        viajeDetalle.setPlanes(this.planService.getPlanesByIdViaje(viaje.getId()));
+        viajeDetalle.setPlanes(this.planService.findPlanesByIdViaje(viaje.getId()));
         return viajeDetalle;
 
     }

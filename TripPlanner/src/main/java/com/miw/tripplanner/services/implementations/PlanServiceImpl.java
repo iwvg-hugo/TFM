@@ -8,6 +8,7 @@ import com.miw.tripplanner.mappers.*;
 import com.miw.tripplanner.services.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +82,7 @@ public class PlanServiceImpl implements PlanService {
     }
 
     @Override
-    public List<PlanDetalleDto> getPlanesByIdViaje(Integer idViaje) {
+    public List<PlanDetalleDto> findPlanesByIdViaje(@RequestParam(value = "idViaje", required = true) Integer idViaje) {
         List<PlanDto> planes = this.planMapper.getPlanesByIdViaje(idViaje);
         List<PlanDetalleDto> planesDetalle = new ArrayList<>();
         for (PlanDto plan : planes) {
