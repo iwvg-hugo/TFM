@@ -3,6 +3,7 @@ package com.miw.tripplanner.controllers;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.miw.tripplanner.dtos.ViajeDto;
+import com.miw.tripplanner.dtos.detalle.ViajeDetalleDto;
 import com.miw.tripplanner.utils.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,9 +64,9 @@ class ViajeControllerTestIT extends BaseTest {
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
         // Deserializar la respuesta como un ViajeDto
-        ViajeDto response = mapper.readValue(
+        ViajeDetalleDto response = mapper.readValue(
                 ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<ViajeDto>() {});
+                new TypeReference<ViajeDetalleDto>() {});
 
         // Verificar que el objeto deserializado no es nulo
         assertNotNull(response);

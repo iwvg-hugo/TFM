@@ -3,6 +3,7 @@ package com.miw.tripplanner.services.implementations;
 import com.miw.tripplanner.dtos.HorarioDto;
 import com.miw.tripplanner.dtos.UsuarioViajeDto;
 import com.miw.tripplanner.dtos.ViajeDto;
+import com.miw.tripplanner.dtos.detalle.ViajeDetalleDto;
 import com.miw.tripplanner.mappers.*;
 import com.miw.tripplanner.services.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,15 @@ public class ViajeServiceImpl implements ViajeService {
     }
 
     @Override
-    public ViajeDto getViaje(Integer id) {
-        return viajeMapper.getViaje(id);
+    public ViajeDetalleDto getViaje(Integer id) {
+        ViajeDto viaje = this.viajeMapper.getViaje(id);
+        ViajeDetalleDto viajeDetalle = new ViajeDetalleDto();
+        viajeDetalle.setId(viaje.getId());
+        viajeDetalle.setHorario(this.horarioMapper.getHorario(viaje.getIdHorario()));
+        viajeDetalle.setPropuestas(this.propuestaMapper.findPropuestasByIdViaje(viaje.getId()));
+        viajeDetalle.setPlanes(this.planService.getPlanesByIdViaje(viaje.getId()));
+        return viajeDetalle;
+
     }
 
     @Override
@@ -58,7 +66,7 @@ public class ViajeServiceImpl implements ViajeService {
 
     @Override
     public void deleteViaje(Integer id) {
-        horarioMapper.deleteHorario(viajeMapper.getViajeById(id).getIdHorario());
+        horarioMapper.deleteHorario(viajeMapper.getViaje(id).getIdHorario());
         propuestaMapper.deletePropuestasByIdViaje(id);
         usuarioViajeMapper.deleteUsuariosViajesByIdViaje(id);
         planService.deletePlanesByIdViaje(id);
