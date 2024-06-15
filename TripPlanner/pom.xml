@@ -137,26 +137,54 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <executions>
                     <execution>
+                        <id>default-prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>report</id>
-                        <phase>verify</phase>
+                        <id>default-report</id>
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <configuration>
+                            <dataFile>target/jacoco.exec</dataFile>
+                            <outputDirectory>target/site/jacoco</outputDirectory>
+                        </configuration>
                     </execution>
                     <execution>
-                        <id>report-it</id>
+                        <id>default-prepare-agent-it</id>
+                        <phase>integration-test</phase>
                         <goals>
-                            <goal>report</goal>
+                            <goal>prepare-agent-integration</goal>
                         </goals>
+                        <configuration>
+                            <destFile>target/jacoco-it.exec</destFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>default-report-it</id>
                         <phase>verify</phase>
+                        <goals>
+                            <goal>report-integration</goal>
+                        </goals>
                         <configuration>
                             <dataFile>target/jacoco-it.exec</dataFile>
                             <outputDirectory>target/site/jacoco-it</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>default-merge</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>merge</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>target/jacoco-merged.exec</destFile>
+                            <dataFiles>
+                                <dataFile>target/jacoco.exec</dataFile>
+                                <dataFile>target/jacoco-it.exec</dataFile>
+                            </dataFiles>
                         </configuration>
                     </execution>
                 </executions>
