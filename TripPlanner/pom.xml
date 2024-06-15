@@ -121,16 +121,16 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>prepare-agent-it</id>
+                        <id>prepare-agent-integration</id>
                         <goals>
-                            <goal>prepare-agent-integration</goal>
+                            <goal>prepare-agent</goal>
                         </goals>
                         <configuration>
                             <destFile>${project.build.directory}/jacoco-it.exec</destFile>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>report-it</id>
+                        <id>report-integration</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
@@ -148,15 +148,10 @@
                         </goals>
                         <configuration>
                             <destFile>${project.build.directory}/jacoco-merged.exec</destFile>
-                            <fileSets>
-                                <fileSet>
-                                    <directory>${project.build.directory}</directory>
-                                    <includes>
-                                        <include>jacoco.exec</include>
-                                        <include>jacoco-it.exec</include>
-                                    </includes>
-                                </fileSet>
-                            </fileSets>
+                            <files>
+                                <file>${project.build.directory}/jacoco.exec</file>
+                                <file>${project.build.directory}/jacoco-it.exec</file>
+                            </files>
                         </configuration>
                     </execution>
                 </executions>
@@ -175,8 +170,14 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>default-integration-test</id>
                         <goals>
                             <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-verify</id>
+                        <goals>
                             <goal>verify</goal>
                         </goals>
                     </execution>
