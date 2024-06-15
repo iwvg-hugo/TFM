@@ -30,5 +30,16 @@
             DELETE FROM planes
             WHERE id = #{id}
         </delete>
+
+        <delete id="deletePlanesByIdViaje">
+            DELETE FROM planes
+            WHERE id_viaje = #{idViaje}
+        </delete>
+
+        <select id="getPlanesByViaje">
+            SELECT *
+            FROM planes
+            WHERE id_viaje = #{idViaje}
+        </select>
     
 </mapper>
