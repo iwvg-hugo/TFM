@@ -126,18 +126,18 @@
                             <goal>prepare-agent-integration</goal>
                         </goals>
                         <configuration>
-                            <destFile>target/jacoco-it.exec</destFile>
+                            <destFile>${project.build.directory}/jacoco-it.exec</destFile>
                         </configuration>
                     </execution>
                     <execution>
                         <id>report-it</id>
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
-                        <phase>verify</phase>
                         <configuration>
-                            <dataFile>target/jacoco-it.exec</dataFile>
-                            <outputDirectory>target/site/jacoco-it</outputDirectory>
+                            <dataFile>${project.build.directory}/jacoco-it.exec</dataFile>
+                            <outputDirectory>${project.build.directory}/site/jacoco-it</outputDirectory>
                         </configuration>
                     </execution>
                     <execution>
@@ -147,16 +147,11 @@
                             <goal>merge</goal>
                         </goals>
                         <configuration>
-                            <destFile>target/jacoco-merged.exec</destFile>
-                            <fileSets>
-                                <fileSet>
-                                    <directory>${project.build.directory}</directory>
-                                    <includes>
-                                        <include>jacoco.exec</include>
-                                        <include>jacoco-it.exec</include>
-                                    </includes>
-                                </fileSet>
-                            </fileSets>
+                            <destFile>${project.build.directory}/jacoco-merged.exec</destFile>
+                            <files>
+                                <file>${project.build.directory}/jacoco.exec</file>
+                                <file>${project.build.directory}/jacoco-it.exec</file>
+                            </files>
                         </configuration>
                     </execution>
                 </executions>
