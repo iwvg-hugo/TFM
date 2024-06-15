@@ -9,7 +9,7 @@ import java.util.List;
 public interface ViajeMapper {
 
     List<ViajeDto> getAllViajes();
-    ViajeDto getViajeById(Integer id);
+    ViajeDto getViaje(Integer id);
     List<ViajeDto> findViajesByUserId(Integer id);
     Integer createViaje(ViajeDto viajeDto);
     void updateViaje(ViajeDto viajeDto);
