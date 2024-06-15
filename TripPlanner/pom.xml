@@ -156,7 +156,7 @@
                         </goals>
                         <phase>pre-integration-test</phase>
                         <configuration>
-                            <propertyName>itCoverageAngent</propertyName>
+                            <propertyName>itCoverageAgent</propertyName>
                         </configuration>
                     </execution>
                     <execution>
