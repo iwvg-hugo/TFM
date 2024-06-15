@@ -29,21 +29,16 @@ jobs:
         working-directory: TripPlanner
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
-      - name: Slack WebHook
-        if: always()
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: 'repo,author,commit,author,workflow'
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: List Jacoco Report Files
+        run: |
+          ls -l target/site/jacoco
+          ls -l target/site/jacoco-it
+          ls -l target/site/jacoco-merged
+        working-directory: TripPlanner
       - name: Sonar
         if: success()
-        run: mvn -B sonar:sonar -Dspring.profiles.active=test -Dsonar.projectKey=iwvg-hugo_TFM -Dsonar.organization=iwvg-hugo -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml        
+        run: mvn -B sonar:sonar -Dspring.profiles.active=test -Dsonar.projectKey=iwvg-hugo_TFM -Dsonar.organization=iwvg-hugo -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco-merged/jacoco.xml        
         working-directory: TripPlanner
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: List Jacoco Report Files
-        run: ls -l target/site/jacoco target/site/jacoco-it
-        working-directory: TripPlanner
