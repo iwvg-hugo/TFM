@@ -31,4 +31,12 @@
             WHERE id = #{id}
         </delete>
 
+        <delete id="deleteTicketsByIdPlan">
+            DELETE FROM usuarios_tickets
+            WHERE id_ticket IN (SELECT id FROM Tickets WHERE id_plan = #{id_plan});
+
+            DELETE FROM Tickets
+            WHERE id_plan = #{id_plan};
+        </delete>
+
 </mapper>

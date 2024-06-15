@@ -10,6 +10,5 @@ public interface UsuarioPagoMapper {
     List<UsuarioPagoDto> getAllUsuariosPagos();
     UsuarioPagoDto getUsuarioPago(Integer id);
     Integer createUsuarioPago(UsuarioPagoDto usuarioPagoDto);
-    void updateUsuarioPago(Integer id, UsuarioPagoDto usuarioPagoDto);
-    void deleteUsuarioPago(Integer id);
+    void deleteUsuarioPagoByIdPago(Integer id);
 }

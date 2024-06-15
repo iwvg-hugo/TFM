@@ -11,4 +11,5 @@ public interface PagoMapper {
     Integer createPago(PagoDto pagoDto);
     void updatePago(Integer id, PagoDto pagoDto);
     void deletePago(Integer id);
+    void deletePagoByIdPlan(Integer idPlan);
 }

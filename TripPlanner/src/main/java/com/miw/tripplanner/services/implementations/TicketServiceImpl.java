@@ -42,6 +42,8 @@ public class TicketServiceImpl implements TicketService {
     }
 
     public void deleteTicket(Integer id) {
+        usuarioTicketMapper.deleteUsuarioTicketByIdTicket(id);
         ticketMapper.deleteTicket(id);
     }
+
 }

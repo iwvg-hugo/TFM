@@ -11,4 +11,5 @@ public interface TicketMapper {
         Integer createTicket(TicketDto ticketDto);
         void updateTicket(Integer id, TicketDto ticketDto);
         void deleteTicket(Integer id);
+        void deleteTicketsByIdPlan(Integer idPlan);
 }
