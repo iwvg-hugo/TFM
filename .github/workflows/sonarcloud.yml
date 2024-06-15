@@ -17,7 +17,13 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'temurin' 
+          distribution: 'temurin'
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}-${{ github.run_number }}
+          restore-keys: ${{ runner.os }}-m2
       - name: Unit & Integration Tests
         run: mvn -B verify -Dspring.profiles.active=test
         working-directory: TripPlanner
@@ -38,9 +44,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: Cache Maven packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}-${{ github.run_number }}
-          restore-keys: ${{ runner.os }}-m2
