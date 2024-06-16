@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miw.tripplanner.mappers.UsuarioViajeMapper">
+
+        <select id="getAllUsuariosViajes">
+            SELECT *
+            FROM usuarios_viajes
+        </select>
+
+        <select id="getUsuarioViaje">
+            SELECT *
+            FROM usuarios_viajes
+            WHERE id = #{id}
+        </select>
+
+        <insert id="createUsuarioViaje" parameterType="com.miw.tripplanner.dtos.UsuarioViajeDto">
+            INSERT INTO usuarios_viajes (id_usuario, id_viaje)
+            VALUES (#{idUsuario}, #{idViaje})
+        </insert>
+
+        <update id="updateUsuarioViaje" parameterType="com.miw.tripplanner.dtos.UsuarioViajeDto">
+            UPDATE usuarios_viajes
+            SET id_usuario = #{usuarioViajeDto.idUsuario}, id_viaje = #{usuarioViajeDto.idViaje}
+            WHERE id = #{id}
+        </update>
+
+        <delete id="deleteUsuarioViaje">
+            DELETE FROM usuarios_viajes
+            WHERE id_usuario = #{idUsuario} and id_viaje = #{idViaje}
+        </delete>
+
+        <delete id="deleteUsuariosViajesByIdViaje">
+            DELETE FROM usuarios_viajes
+            WHERE id_viaje = #{idViaje}
+        </delete>
+
+</mapper>

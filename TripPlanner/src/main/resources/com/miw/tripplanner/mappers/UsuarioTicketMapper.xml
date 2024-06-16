@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miw.tripplanner.mappers.UsuarioTicketMapper">
+
+        <select id="getAllUsuariosTickets">
+            SELECT *
+            FROM usuarios_tickets
+        </select>
+
+        <select id="getUsuarioTicket">
+            SELECT *
+            FROM usuarios_tickets
+            WHERE id = #{id}
+        </select>
+
+        <insert id="createUsuarioTicket" parameterType="com.miw.tripplanner.dtos.UsuarioTicketDto">
+            INSERT INTO usuarios_tickets (id_usuario, id_ticket)
+            VALUES (#{idUsuario}, #{idTicket})
+        </insert>
+
+        <update id="updateUsuarioTicket" parameterType="com.miw.tripplanner.dtos.UsuarioTicketDto">
+            UPDATE usuarios_tickets
+            SET id_usuario = #{usuarioTicketDto.idUsuario}, id_ticket = #{usuarioTicketDto.idTicket}
+            WHERE id = #{id}
+        </update>
+
+        <delete id="deleteUsuarioTicket">
+            DELETE FROM usuarios_tickets
+            WHERE id_usuario = #{idUsuario} and id_ticket = #{idTicket}
+        </delete>
+
+        <delete id="deleteUsuarioTicketByIdTicket">
+            DELETE FROM usuarios_tickets
+            WHERE id_ticket = #{id}
+        </delete>
+
+</mapper>

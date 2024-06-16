@@ -17,30 +17,22 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'temurin' 
-      - name: Unit & Integration Tests
-        run: mvn -B verify
-        working-directory: TripPlanner
-        env:
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
-      - name: Slack WebHook
-        if: always()
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: 'repo,author,commit,author,workflow'
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      - name: Sonar
-        if: success()
-        run: mvn -B sonar:sonar -Dsonar.projectKey=iwvg-hugo_TFM -Dsonar.organization=iwvg-hugo -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-        working-directory: TripPlanner
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          distribution: 'temurin'
       - name: Cache Maven packages
         uses: actions/cache@v3
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}-${{ github.run_number }}
           restore-keys: ${{ runner.os }}-m2
+      - name: Unit & Integration Tests
+        run: mvn -B verify -Dspring.profiles.active=test
+        working-directory: TripPlanner
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      - name: Sonar
+        if: success()
+        run: mvn -B sonar:sonar -Dspring.profiles.active=test -Dsonar.projectKey=iwvg-hugo_TFM -Dsonar.organization=iwvg-hugo -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco-merged/jacoco.xml        
+        working-directory: TripPlanner
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

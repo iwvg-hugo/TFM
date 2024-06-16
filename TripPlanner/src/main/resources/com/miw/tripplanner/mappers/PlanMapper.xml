@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miw.tripplanner.mappers.PlanMapper">
+        
+        <select id="getAllPlanes">
+            SELECT * 
+            FROM planes
+        </select>
+        
+        <select id="getPlan">
+            SELECT * 
+            FROM planes
+            WHERE id = #{id}
+        </select>
+        
+        <select id="createPlan" parameterType="com.miw.tripplanner.dtos.PlanDto">
+            INSERT INTO planes (nombre, importancia, descripcion, id_viaje, id_ubicacion, id_horario, id_pago)
+            VALUES (#{nombre}, #{importancia}, #{descripcion}, #{idViaje}, #{idUbicacion}, #{idHorario}, #{idPago})
+            RETURNING id
+        </select>
+        
+        <update id="updatePlan" parameterType="com.miw.tripplanner.dtos.PlanDto">
+            UPDATE planes
+            SET nombre = #{planDto.nombre}, importancia = #{planDto.importancia}, descripcion = #{planDto.descripcion} ,id_viaje = #{planDto.idViaje}, id_Ubicacion = #{planDto.idUbicacion}, id_horario = #{planDto.idHorario}, id_pago = #{planDto.idPago}
+            WHERE id = #{id}
+        </update>
+        
+        <delete id="deletePlan">
+            DELETE FROM planes
+            WHERE id = #{id}
+        </delete>
+
+        <delete id="deletePlanesByIdViaje">
+            DELETE FROM planes
+            WHERE id_viaje = #{idViaje}
+        </delete>
+
+        <select id="getPlanesByIdViaje">
+            SELECT *
+            FROM planes
+            WHERE id_viaje = #{idViaje}
+        </select>
+    
+</mapper>
