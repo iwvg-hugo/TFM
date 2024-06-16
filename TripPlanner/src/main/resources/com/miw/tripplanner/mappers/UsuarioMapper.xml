@@ -15,14 +15,14 @@
         </select>
 
         <select id="createUsuario" parameterType="com.miw.tripplanner.dtos.UsuarioDto">
-            INSERT INTO usuarios (name, email, password)
-            VALUES (#{name}, #{email}, #{password})
+            INSERT INTO usuarios (fullname, email, password, created_at, updated_at)
+            VALUES (#{fullName}, #{email}, #{password}, now(), now())
             RETURNING id
         </select>
 
         <update id="updateUsuario" parameterType="com.miw.tripplanner.dtos.UsuarioDto">
             UPDATE usuarios
-            SET name = #{usuarioDto.name}, email = #{usuarioDto.email}, password = #{usuarioDto.password}
+            SET fullname = #{usuarioDto.name}, email = #{usuarioDto.email}, password = #{usuarioDto.password}, updated_at = now()
             WHERE id = #{id}
         </update>
 
@@ -30,5 +30,11 @@
             DELETE FROM usuarios
             WHERE id = #{id}
         </delete>
+
+        <select id="findUsuarioByEmail">
+            SELECT *
+            FROM usuarios
+            WHERE email = #{email}
+        </select>
 
 </mapper>

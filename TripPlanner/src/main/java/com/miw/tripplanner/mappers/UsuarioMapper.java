@@ -13,5 +13,6 @@ public interface UsuarioMapper {
     Integer createUsuario(UsuarioDto usuarioDto);
     void updateUsuario(Integer id, UsuarioDto usuarioDto);
     void deleteUsuario(Integer id);
+    UsuarioDto findUsuarioByEmail(String email);
 
 }
