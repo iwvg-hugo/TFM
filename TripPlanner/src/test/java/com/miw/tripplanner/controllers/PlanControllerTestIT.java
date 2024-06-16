@@ -13,6 +13,7 @@ import com.miw.tripplanner.utils.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -80,31 +81,6 @@ class PlanControllerTestIT extends BaseTest {
 
     @Test
     void testCreatePlanDelete() throws Exception {
-        //creo una ubicacion para el test:
-        UbicacionDto ubicacionDto = new UbicacionDto();
-        ubicacionDto.setCoordenadas("coordenadas");
-        ubicacionDto.setEsExterior(true);
-        List<String> requisitos = new ArrayList<>();
-        requisitos.add("requisito1");
-        ubicacionDto.setRequisitos(requisitos);
-        ubicacionDto.setTipoVestimenta("tipoVestimenta");
-        ubicacionDto.setDireccion("direccion");
-
-        // Preparar la solicitud
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/ubicaciones")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(ubicacionDto));
-
-        ResultActions ra = mockMvc.perform(requestBuilder);
-        ra.andExpect(MockMvcResultMatchers.status().isOk());
-
-        // Deserializar la respuesta
-        Integer idUbicacion = mapper.readValue(
-                ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<Integer>() {
-                });
-
         //Creo un pago:
         PagoRequest pagoRequest = new PagoRequest();
         PagoDto pagoDto = new PagoDto();
@@ -113,37 +89,17 @@ class PlanControllerTestIT extends BaseTest {
         pagoRequest.setPagoDto(pagoDto);
         pagoRequest.setIdUsuario(9999);
 
-        requestBuilder = MockMvcRequestBuilders
+        RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/pagos")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(pagoRequest));
 
-        ra = mockMvc.perform(requestBuilder);
+        ResultActions ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
         // Deserializar la respuesta
 
         Integer idPago = mapper.readValue(
-                ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<Integer>() {
-                });
-
-        //También un horario:
-        HorarioDto horarioDto = new HorarioDto();
-        horarioDto.setId(7777);
-        horarioDto.setInicio(new java.sql.Timestamp(0));
-        horarioDto.setFin(new java.sql.Timestamp(0));
-
-        requestBuilder = MockMvcRequestBuilders
-                .post("/horarios")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(horarioDto));
-
-        ra = mockMvc.perform(requestBuilder);
-        ra.andExpect(MockMvcResultMatchers.status().isOk());
-
-        // Deserializar la respuesta
-        Integer idHorario = mapper.readValue(
                 ra.andReturn().getResponse().getContentAsString(),
                 new TypeReference<Integer>() {
                 });
@@ -155,8 +111,6 @@ class PlanControllerTestIT extends BaseTest {
         planDto.setImportancia(1);
         planDto.setDescripcion("Descripcion del plan 1");
         planDto.setIdPago(idPago);
-        planDto.setIdUbicacion(idUbicacion);
-        planDto.setIdHorario(idHorario);
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
