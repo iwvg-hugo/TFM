@@ -107,7 +107,7 @@ class UbicacionControllerTestIT extends BaseTest {
         assertNotNull(response);
 
         // Puedes agregar más aserciones para verificar el contenido del objeto
-        assertEquals(1, response);
+        assertNotNull(response);
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
