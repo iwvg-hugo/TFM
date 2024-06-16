@@ -82,7 +82,6 @@ class PlanControllerTestIT extends BaseTest {
     void testCreatePlanDelete() throws Exception {
         //creo una ubicacion para el test:
         UbicacionDto ubicacionDto = new UbicacionDto();
-        ubicacionDto.setId(7777);
         ubicacionDto.setCoordenadas("coordenadas");
         ubicacionDto.setEsExterior(true);
         List<String> requisitos = new ArrayList<>();
@@ -100,6 +99,12 @@ class PlanControllerTestIT extends BaseTest {
         ResultActions ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
+        // Deserializar la respuesta
+        Integer idUbicacion = mapper.readValue(
+                ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<Integer>() {
+                });
+
         //Creo un pago:
         PagoRequest pagoRequest = new PagoRequest();
         PagoDto pagoDto = new PagoDto();
@@ -116,6 +121,13 @@ class PlanControllerTestIT extends BaseTest {
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
+        // Deserializar la respuesta
+
+        Integer idPago = mapper.readValue(
+                ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<Integer>() {
+                });
+
         //También un horario:
         HorarioDto horarioDto = new HorarioDto();
         horarioDto.setId(7777);
@@ -130,15 +142,21 @@ class PlanControllerTestIT extends BaseTest {
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
+        // Deserializar la respuesta
+        Integer idHorario = mapper.readValue(
+                ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<Integer>() {
+                });
+
         PlanDto planDto = new PlanDto();
         planDto.setId(1);
         planDto.setIdViaje(9999);
         planDto.setNombre("Plan 1");
         planDto.setImportancia(1);
         planDto.setDescripcion("Descripcion del plan 1");
-        planDto.setIdPago(7777);
-        planDto.setIdUbicacion(7777);
-        planDto.setIdHorario(7777);
+        planDto.setIdPago(idPago);
+        planDto.setIdUbicacion(idUbicacion);
+        planDto.setIdHorario(idHorario);
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
