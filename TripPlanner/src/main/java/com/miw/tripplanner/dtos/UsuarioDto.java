@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class UsuarioDto {
+public class    UsuarioDto {
     private Integer id;
     private String name;
     private String email;
