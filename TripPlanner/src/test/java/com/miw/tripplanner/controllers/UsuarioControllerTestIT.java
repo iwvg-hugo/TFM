@@ -75,7 +75,7 @@ class UsuarioControllerTestIT extends BaseTest {
     @Test
     void testCreateUsuariodelete() throws Exception {
         UsuarioDto usua = new UsuarioDto();
-        usua.setName("test");
+        usua.setFullName("test");
         usua.setEmail("correo");
         usua.setPassword("pass");
 
@@ -119,7 +119,7 @@ class UsuarioControllerTestIT extends BaseTest {
     void testUpdateUsuario() throws Exception {
         UsuarioDto usuarioDto = new UsuarioDto();
         usuarioDto.setId(9999);
-        usuarioDto.setName("testNuevo");
+        usuarioDto.setFullName("testNuevo");
         usuarioDto.setEmail("correo");
         usuarioDto.setPassword("pass");
 
@@ -146,10 +146,10 @@ class UsuarioControllerTestIT extends BaseTest {
                 new TypeReference<UsuarioDto>() {
                 });
         assertNotNull(response2);
-        assertEquals(usuarioDto.getName(), response2.getName());
+        assertEquals(usuarioDto.getFullName(), response2.getFullName());
 
         //lo vuelvo a dejar como estaba
-        usuarioDto.setName("test");
+        usuarioDto.setFullName("test");
         requestBuilder = MockMvcRequestBuilders
                 .put("/usuarios/{id}", usuarioDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
