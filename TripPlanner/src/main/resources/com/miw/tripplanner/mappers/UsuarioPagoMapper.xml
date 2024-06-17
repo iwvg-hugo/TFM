@@ -11,7 +11,7 @@
         <select id="getUsuarioPago">
             SELECT *
             FROM usuarios_pagos
-            WHERE id = #{id}
+            WHERE id_usuario = #{id}
         </select>
 
         <insert id="createUsuarioPago" parameterType="com.miw.tripplanner.dtos.UsuarioPagoDto">
@@ -22,7 +22,7 @@
         <update id="updateUsuarioPago" parameterType="com.miw.tripplanner.dtos.UsuarioPagoDto">
             UPDATE usuarios_pagos
             SET id_usuario = #{usuarioPagoDto.idUsuario}, id_pago = #{usuarioPagoDto.idPago}
-            WHERE id = #{id}
+            WHERE id_usuario = #{id}
         </update>
 
         <delete id="deleteUsuarioPago">

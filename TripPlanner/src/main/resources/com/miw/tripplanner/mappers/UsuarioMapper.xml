@@ -22,7 +22,7 @@
 
         <update id="updateUsuario" parameterType="com.miw.tripplanner.dtos.UsuarioDto">
             UPDATE usuarios
-            SET fullname = #{usuarioDto.name}, email = #{usuarioDto.email}, password = #{usuarioDto.password}, updated_at = now()
+            SET fullname = #{usuarioDto.fullName}, email = #{usuarioDto.email}, password = #{usuarioDto.password}, updated_at = now()
             WHERE id = #{id}
         </update>
 

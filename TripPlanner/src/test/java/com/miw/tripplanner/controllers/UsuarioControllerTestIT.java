@@ -1,6 +1,7 @@
 package com.miw.tripplanner.controllers;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.miw.tripplanner.dtos.UsuarioDto;
 import com.miw.tripplanner.utils.BaseTest;
@@ -37,6 +38,7 @@ class UsuarioControllerTestIT extends BaseTest {
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
         // Deserializar directamente a una lista de ViajeDto
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         response = mapper.readValue(ra.andReturn().getResponse().getContentAsString(),
                 new TypeReference<List<UsuarioDto>>() {
                 });
@@ -60,6 +62,7 @@ class UsuarioControllerTestIT extends BaseTest {
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
         // Deserializar la respuesta como un ViajeDto
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         UsuarioDto response = mapper.readValue(
                 ra.andReturn().getResponse().getContentAsString(),
                 new TypeReference<UsuarioDto>() {
@@ -86,6 +89,7 @@ class UsuarioControllerTestIT extends BaseTest {
                 .content(mapper.writeValueAsString(usua));
 
         // Ejecutar la solicitud y obtener el resultado
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         ResultActions ra = mockMvc.perform(requestBuilder);
 
         // Verificar que el estado de la respuesta es 200 OK
@@ -122,6 +126,8 @@ class UsuarioControllerTestIT extends BaseTest {
         usuarioDto.setFullName("testNuevo");
         usuarioDto.setEmail("correo");
         usuarioDto.setPassword("pass");
+
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
