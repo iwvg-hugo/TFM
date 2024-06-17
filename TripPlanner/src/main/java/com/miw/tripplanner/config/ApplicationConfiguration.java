@@ -1,6 +1,7 @@
 package com.miw.tripplanner.config;
 
 import com.miw.tripplanner.mappers.UsuarioMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
+@Slf4j
 public class ApplicationConfiguration {
     private final UsuarioMapper usuarioMapper;
 
@@ -23,7 +25,7 @@ public class ApplicationConfiguration {
         try {
             return usuarioMapper::findUsuarioByEmail;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error getting user by email", e);
         }
         return null;
     }
