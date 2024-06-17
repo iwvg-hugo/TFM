@@ -1,13 +1,19 @@
 package com.miw.tripplanner.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.miw.tripplanner.dtos.ViajeDto;
-import com.miw.tripplanner.dtos.detalle.ViajeDetalleDto;
+import com.miw.tripplanner.dtos.HorarioDto;
+import com.miw.tripplanner.dtos.PagoDto;
+import com.miw.tripplanner.dtos.PlanDto;
+import com.miw.tripplanner.dtos.UbicacionDto;
+import com.miw.tripplanner.dtos.detalle.PlanDetalleDto;
+import com.miw.tripplanner.dtos.requests.PagoRequest;
 import com.miw.tripplanner.utils.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -19,18 +25,18 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class ViajeControllerTestIT extends BaseTest {
+class PlanControllerTestIT extends BaseTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
-    private ViajeController viajeController;
+    private PlanController planController;
 
     @Test
-    void testGetViajes() throws Exception {
-        List<ViajeDto> response = new ArrayList<>();
+    void testGetPlanes() throws Exception {
+        List<PlanDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/viajes")
+                .get("/planes")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -38,23 +44,20 @@ class ViajeControllerTestIT extends BaseTest {
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
         // Deserializar directamente a una lista de ViajeDto
-        List<ViajeDto> viajes = mapper.readValue(ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<List<ViajeDto>>() {
+        response = mapper.readValue(ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<List<PlanDto>>() {
                 });
-        response = viajes;
         assertNotNull(response);
-        assertEquals(1, response.size());
-        assertEquals(9999, response.get(0).getId());
-        assertEquals(9999, response.get(0).getIdHorario());
+        assertEquals(2, response.size());
     }
 
     @Test
-    void testgetViaje() throws Exception {
-        int viajeId = 9999;
+    void testGetPlan() throws Exception {
+        int planId = 9999;
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/viajes/{id}", viajeId)
+                .get("/planes/{id}", planId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -64,61 +67,59 @@ class ViajeControllerTestIT extends BaseTest {
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
         // Deserializar la respuesta como un ViajeDto
-        ViajeDetalleDto response = mapper.readValue(
+        PlanDetalleDto response = mapper.readValue(
                 ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<ViajeDetalleDto>() {
+                new TypeReference<PlanDetalleDto>() {
                 });
 
         // Verificar que el objeto deserializado no es nulo
         assertNotNull(response);
 
         // Puedes agregar más aserciones para verificar el contenido del objeto
-        assertEquals(viajeId, response.getId());
+        assertEquals(planId, response.getId());
     }
 
     @Test
-    void testfindViajesByUserId() throws Exception {
-        int userId = 9999;
+    void testCreatePlanDelete() throws Exception {
+        //Creo un pago:
+        PagoRequest pagoRequest = new PagoRequest();
+        PagoDto pagoDto = new PagoDto();
+        pagoDto.setId(7777);
+        pagoDto.setTotal(100.0F);
+        pagoRequest.setPagoDto(pagoDto);
+        pagoRequest.setIdUsuario(9999);
 
-        // Preparar la solicitud
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/viajes/usuario/{idUsuario}", userId)
-                .contentType(MediaType.APPLICATION_JSON);
+        RequestBuilder requestBuilder = MockMvcRequestBuilders
+                .post("/pagos")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(pagoRequest));
 
-        // Ejecutar la solicitud y obtener el resultado
         ResultActions ra = mockMvc.perform(requestBuilder);
-
-        // Verificar que el estado de la respuesta es 200 OK
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
-        // Deserializar la respuesta como una lista de ViajeDto
-        List<ViajeDto> response = mapper.readValue(
+        // Deserializar la respuesta
+
+        Integer idPago = mapper.readValue(
                 ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<List<ViajeDto>>() {
+                new TypeReference<Integer>() {
                 });
 
-        // Verificar que el objeto deserializado no es nulo
-        assertNotNull(response);
-
-        // Puedes agregar más aserciones para verificar el contenido del objeto
-        assertEquals(1, response.size());
-        assertEquals(9999, response.get(0).getId());
-        assertEquals(9999, response.get(0).getIdHorario());
-    }
-
-    @Test
-    void testCreateViajedelete() throws Exception {
-        int userId = 9999; // El ID del usuario que quieres consultar
-        int viajeId = 1; // El ID del viaje que se crea
+        PlanDto planDto = new PlanDto();
+        planDto.setId(1);
+        planDto.setIdViaje(9999);
+        planDto.setNombre("Plan 1");
+        planDto.setImportancia(1);
+        planDto.setDescripcion("Descripcion del plan 1");
+        planDto.setIdPago(idPago);
 
         // Preparar la solicitud
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/viajes")
+        requestBuilder = MockMvcRequestBuilders
+                .post("/planes")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(userId));
+                .content(mapper.writeValueAsString(planDto));
 
         // Ejecutar la solicitud y obtener el resultado
-        ResultActions ra = mockMvc.perform(requestBuilder);
+        ra = mockMvc.perform(requestBuilder);
 
         // Verificar que el estado de la respuesta es 200 OK
         ra.andExpect(MockMvcResultMatchers.status().isOk());
@@ -137,7 +138,7 @@ class ViajeControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/viajes/{id}", response)
+                .delete("/planes/{id}", response)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -148,16 +149,22 @@ class ViajeControllerTestIT extends BaseTest {
     }
 
     @Test
-    void testUpdateViaje() throws Exception {
-        ViajeDto viajeDto = new ViajeDto();
-        viajeDto.setId(9999);
-        viajeDto.setIdHorario(9998);
+    void testUpdatePlan() throws Exception {
+        PlanDto planDto = new PlanDto();
+        planDto.setId(9999);
+        planDto.setIdViaje(9999);
+        planDto.setNombre("Plan 2");
+        planDto.setImportancia(1);
+        planDto.setDescripcion("Descripcion del plan 1");
+        planDto.setIdPago(9999);
+        planDto.setIdUbicacion(9999);
+        planDto.setIdHorario(9999);
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .put("/viajes/{id}", viajeDto.getId())
+                .put("/planes/{id}", planDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(viajeDto));
+                .content(mapper.writeValueAsString(planDto));
 
         // Ejecutar la solicitud y obtener el resultado
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -167,26 +174,45 @@ class ViajeControllerTestIT extends BaseTest {
 
         //compruebo que se actualizo con un getbyid
         requestBuilder = MockMvcRequestBuilders
-                .get("/viajes/{id}", viajeDto.getId())
+                .get("/planes/{id}", planDto.getId())
                 .contentType(MediaType.APPLICATION_JSON);
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
-        ViajeDetalleDto response2 = mapper.readValue(
+        PlanDetalleDto response2 = mapper.readValue(
                 ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<ViajeDetalleDto>() {
+                new TypeReference<PlanDetalleDto>() {
                 });
         assertNotNull(response2);
-        assertEquals(viajeDto.getIdHorario(), response2.getHorario().getId());
+        assertEquals(planDto.getNombre(), response2.getNombre());
 
         //lo vuelvo a dejar como estaba
-        viajeDto.setIdHorario(9999);
+        planDto.setNombre("Vuelo");
         requestBuilder = MockMvcRequestBuilders
-                .put("/viajes/{id}", viajeDto.getId())
+                .put("/propuestas/{id}", planDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(viajeDto));
+                .content(mapper.writeValueAsString(planDto));
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
     }
 
+    @Test
+    void testFindPlanesByIdViaje() throws Exception {
+        int idViaje = 9999;
+        List<PlanDetalleDto> response = new ArrayList<>();
 
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
+                .get("/planes/search?idViaje={idViaje}", idViaje)
+                .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
+
+        ResultActions ra = mockMvc.perform(requestBuilder);
+
+        ra.andExpect(MockMvcResultMatchers.status().isOk());
+
+        // Deserializar directamente a una lista de ViajeDto
+        response = mapper.readValue(ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<List<PlanDetalleDto>>() {
+                });
+        assertNotNull(response);
+        assertEquals(2, response.size());
+    }
 }

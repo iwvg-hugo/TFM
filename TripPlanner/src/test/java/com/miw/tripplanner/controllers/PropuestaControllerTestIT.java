@@ -2,8 +2,7 @@ package com.miw.tripplanner.controllers;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.miw.tripplanner.dtos.ViajeDto;
-import com.miw.tripplanner.dtos.detalle.ViajeDetalleDto;
+import com.miw.tripplanner.dtos.PropuestaDto;
 import com.miw.tripplanner.utils.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +18,18 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class ViajeControllerTestIT extends BaseTest {
+class PropuestaControllerTestIT extends BaseTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
-    private ViajeController viajeController;
+    private PropuestaController propuestaController;
 
     @Test
-    void testGetViajes() throws Exception {
-        List<ViajeDto> response = new ArrayList<>();
+    void testGetPropuestas() throws Exception {
+        List<PropuestaDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/viajes")
+                .get("/propuestas")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -38,23 +37,20 @@ class ViajeControllerTestIT extends BaseTest {
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
         // Deserializar directamente a una lista de ViajeDto
-        List<ViajeDto> viajes = mapper.readValue(ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<List<ViajeDto>>() {
+        response = mapper.readValue(ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<List<PropuestaDto>>() {
                 });
-        response = viajes;
         assertNotNull(response);
-        assertEquals(1, response.size());
-        assertEquals(9999, response.get(0).getId());
-        assertEquals(9999, response.get(0).getIdHorario());
+        assertEquals(2, response.size());
     }
 
     @Test
-    void testgetViaje() throws Exception {
-        int viajeId = 9999;
+    void testgetPropuesta() throws Exception {
+        int propuestaId = 9999;
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/viajes/{id}", viajeId)
+                .get("/propuestas/{id}", propuestaId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -64,58 +60,34 @@ class ViajeControllerTestIT extends BaseTest {
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
         // Deserializar la respuesta como un ViajeDto
-        ViajeDetalleDto response = mapper.readValue(
+        PropuestaDto response = mapper.readValue(
                 ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<ViajeDetalleDto>() {
+                new TypeReference<PropuestaDto>() {
                 });
 
         // Verificar que el objeto deserializado no es nulo
         assertNotNull(response);
 
         // Puedes agregar más aserciones para verificar el contenido del objeto
-        assertEquals(viajeId, response.getId());
+        assertEquals(propuestaId, response.getId());
     }
 
     @Test
-    void testfindViajesByUserId() throws Exception {
-        int userId = 9999;
+    void testCreatePropuestadelete() throws Exception {
+        PropuestaDto propuestaDto = new PropuestaDto();
+        propuestaDto.setId(1);
+        propuestaDto.setIdViaje(9999);
+        propuestaDto.setNombre("Propuesta 1");
+        propuestaDto.setGanadora(false);
+        propuestaDto.setDescripcion("Descripcion de la propuesta 1");
+        propuestaDto.setPresupuesto(1000.0F);
+        propuestaDto.setValoracion(5.0F);
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/viajes/usuario/{idUsuario}", userId)
-                .contentType(MediaType.APPLICATION_JSON);
-
-        // Ejecutar la solicitud y obtener el resultado
-        ResultActions ra = mockMvc.perform(requestBuilder);
-
-        // Verificar que el estado de la respuesta es 200 OK
-        ra.andExpect(MockMvcResultMatchers.status().isOk());
-
-        // Deserializar la respuesta como una lista de ViajeDto
-        List<ViajeDto> response = mapper.readValue(
-                ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<List<ViajeDto>>() {
-                });
-
-        // Verificar que el objeto deserializado no es nulo
-        assertNotNull(response);
-
-        // Puedes agregar más aserciones para verificar el contenido del objeto
-        assertEquals(1, response.size());
-        assertEquals(9999, response.get(0).getId());
-        assertEquals(9999, response.get(0).getIdHorario());
-    }
-
-    @Test
-    void testCreateViajedelete() throws Exception {
-        int userId = 9999; // El ID del usuario que quieres consultar
-        int viajeId = 1; // El ID del viaje que se crea
-
-        // Preparar la solicitud
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/viajes")
+                .post("/propuestas")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(userId));
+                .content(mapper.writeValueAsString(propuestaDto));
 
         // Ejecutar la solicitud y obtener el resultado
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -137,7 +109,7 @@ class ViajeControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/viajes/{id}", response)
+                .delete("/propuestas/{id}", response)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -148,16 +120,21 @@ class ViajeControllerTestIT extends BaseTest {
     }
 
     @Test
-    void testUpdateViaje() throws Exception {
-        ViajeDto viajeDto = new ViajeDto();
-        viajeDto.setId(9999);
-        viajeDto.setIdHorario(9998);
+    void testUpdatePropuesta() throws Exception {
+        PropuestaDto propuestaDto = new PropuestaDto();
+        propuestaDto.setId(9999);
+        propuestaDto.setIdViaje(9999);
+        propuestaDto.setNombre("Propuesta 1");
+        propuestaDto.setGanadora(true);
+        propuestaDto.setDescripcion("Descripcion de la propuesta 1");
+        propuestaDto.setPresupuesto(1000.0F);
+        propuestaDto.setValoracion(5.0F);
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .put("/viajes/{id}", viajeDto.getId())
+                .put("/propuestas/{id}", propuestaDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(viajeDto));
+                .content(mapper.writeValueAsString(propuestaDto));
 
         // Ejecutar la solicitud y obtener el resultado
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -167,23 +144,23 @@ class ViajeControllerTestIT extends BaseTest {
 
         //compruebo que se actualizo con un getbyid
         requestBuilder = MockMvcRequestBuilders
-                .get("/viajes/{id}", viajeDto.getId())
+                .get("/propuestas/{id}", propuestaDto.getId())
                 .contentType(MediaType.APPLICATION_JSON);
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
-        ViajeDetalleDto response2 = mapper.readValue(
+        PropuestaDto response2 = mapper.readValue(
                 ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<ViajeDetalleDto>() {
+                new TypeReference<PropuestaDto>() {
                 });
         assertNotNull(response2);
-        assertEquals(viajeDto.getIdHorario(), response2.getHorario().getId());
+        assertEquals(propuestaDto.getGanadora(), response2.getGanadora());
 
         //lo vuelvo a dejar como estaba
-        viajeDto.setIdHorario(9999);
+        propuestaDto.setGanadora(false);
         requestBuilder = MockMvcRequestBuilders
-                .put("/viajes/{id}", viajeDto.getId())
+                .put("/propuestas/{id}", propuestaDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(viajeDto));
+                .content(mapper.writeValueAsString(propuestaDto));
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
     }

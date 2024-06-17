@@ -15,14 +15,19 @@
         </select>
 
         <select id="createPropuesta" parameterType="com.miw.tripplanner.dtos.PropuestaDto">
-            INSERT INTO propuestas (nombre, descripcion, precio, id_viaje)
-            VALUES (#{nombre}, #{descripcion}, #{precio}, #{idViaje})
+            INSERT INTO propuestas (nombre, descripcion, presupuesto, id_viaje,ganadora,valoracion)
+            VALUES (#{nombre}, #{descripcion}, #{presupuesto}, #{idViaje}, #{ganadora}, #{valoracion})
             RETURNING id
         </select>
 
-        <update id="updatePropuesta" parameterType="com.miw.tripplanner.dtos.PropuestaDto">
+        <update id="updatePropuesta">
             UPDATE propuestas
-            SET nombre = #{propuestaDto.nombre}, descripcion = #{propuestaDto.descripcion}, precio = #{propuestaDto.precio}, id_viaje = #{propuestaDto.idViaje}
+            SET nombre      = #{propuestaDto.nombre},
+                descripcion = #{propuestaDto.descripcion},
+                presupuesto = #{propuestaDto.presupuesto},
+                id_viaje    = #{propuestaDto.idViaje},
+                ganadora    = #{propuestaDto.ganadora},
+                valoracion  = #{propuestaDto.valoracion}
             WHERE id = #{id}
         </update>
 
