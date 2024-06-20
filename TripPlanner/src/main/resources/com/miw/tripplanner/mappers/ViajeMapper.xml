@@ -15,14 +15,14 @@
     </select>
 
     <select id="createViaje" parameterType="com.miw.tripplanner.dtos.ViajeDto">
-        INSERT INTO viajes (id_horario)
-        VALUES (#{idHorario})
+        INSERT INTO viajes (titulo, id_horario)
+        VALUES (#{titulo}, #{idHorario})
         RETURNING id
     </select>
 
     <update id="updateViaje">
         UPDATE viajes
-        SET id_horario = #{idHorario}
+        SET id_horario = #{idHorario}, titulo = #{titulo}
         WHERE id = #{id}
     </update>
 

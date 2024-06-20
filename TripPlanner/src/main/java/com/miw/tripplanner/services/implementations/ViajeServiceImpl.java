@@ -1,9 +1,11 @@
 package com.miw.tripplanner.services.implementations;
 
 import com.miw.tripplanner.dtos.HorarioDto;
+import com.miw.tripplanner.dtos.PropuestaDto;
 import com.miw.tripplanner.dtos.UsuarioViajeDto;
 import com.miw.tripplanner.dtos.ViajeDto;
 import com.miw.tripplanner.dtos.detalle.ViajeDetalleDto;
+import com.miw.tripplanner.dtos.requests.ViajeRequest;
 import com.miw.tripplanner.mappers.*;
 import com.miw.tripplanner.services.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,8 @@ public class ViajeServiceImpl implements ViajeService {
 
     @Autowired
     private PlanServiceImpl planService;
+    @Autowired
+    private UsuarioMapper usuarioMapper;
 
     @Override
     public List<ViajeDto> getAllViajes() {
@@ -52,10 +56,25 @@ public class ViajeServiceImpl implements ViajeService {
     }
 
     @Override
-    public Integer createViaje(Integer idUsuario, ViajeDto viajeDto) {
-        viajeDto.setIdHorario(horarioMapper.createHorario(new HorarioDto()));
+    public Integer createViaje(ViajeRequest viajeRequest) {
+        ViajeDto viajeDto = new ViajeDto();
+        viajeDto.setIdHorario(horarioMapper.createHorario(new HorarioDto(0, viajeRequest.getFechaInicio(), viajeRequest.getFechaFin())));
+        viajeDto.setTitulo(viajeRequest.getTitulo());
         Integer id = viajeMapper.createViaje(viajeDto);
-        usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idUsuario, id));
+        Integer idUsuario = usuarioMapper.findUsuarioByEmail(viajeRequest.getUserEmail()).getId();
+        if (idUsuario != null) {
+            usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idUsuario, id));
+        }
+        for (String email : viajeRequest.getEmailParticipantes()) {
+            Integer idParticipante = usuarioMapper.findUsuarioByEmail(email).getId();
+            if (idParticipante != null) {
+                usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idParticipante, id));
+            }
+        }
+        for (PropuestaDto propuestaDto : viajeRequest.getPropuestas()) {
+            propuestaDto.setIdViaje(id);
+            propuestaMapper.createPropuesta(propuestaDto);
+        }
         return id;
     }
 

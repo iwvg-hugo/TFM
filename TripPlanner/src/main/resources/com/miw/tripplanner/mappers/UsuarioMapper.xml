@@ -37,4 +37,12 @@
             WHERE email = #{email}
         </select>
 
+        <select id="findUsuariosByIdViaje">
+            SELECT u.id, u.fullname, u.email
+            FROM usuarios u
+            JOIN usuarios_viajes uv ON u.id = uv.id_usuario
+            JOIN viajes v ON uv.id_viaje = v.id
+            WHERE v.id = #{id_viaje}
+        </select>
+
 </mapper>

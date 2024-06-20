@@ -1,6 +1,7 @@
 package com.miw.tripplanner.controllers;
 
 import com.miw.tripplanner.dtos.*;
+import com.miw.tripplanner.dtos.detalle.UsuarioDetalle;
 import com.miw.tripplanner.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,5 +38,10 @@ public class UsuarioController {
     @DeleteMapping("/{id}")
     public void deleteUsuario(@PathVariable Integer id) {
         usuarioService.deleteUsuario(id);
+    }
+
+    @GetMapping("/search")
+    public List<UsuarioDetalle> findUsuarios(@RequestParam(value = "idViaje", required = true) Integer idViaje) {
+        return usuarioService.findUsuariosByIdViaje(idViaje);
     }
 }

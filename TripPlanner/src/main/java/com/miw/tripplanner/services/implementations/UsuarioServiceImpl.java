@@ -1,6 +1,7 @@
 package com.miw.tripplanner.services.implementations;
 
 import com.miw.tripplanner.dtos.UsuarioDto;
+import com.miw.tripplanner.dtos.detalle.UsuarioDetalle;
 import com.miw.tripplanner.mappers.UsuarioMapper;
 import com.miw.tripplanner.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void deleteUsuario(Integer id) {
         usuarioMapper.deleteUsuario(id);
+    }
+
+    @Override
+    public List<UsuarioDetalle> findUsuariosByIdViaje(Integer idViaje) {
+        return usuarioMapper.findUsuariosByIdViaje(idViaje);
     }
 }

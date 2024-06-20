@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class ViajeDto {
     private Integer id;
+    private String titulo;
     private Integer idHorario;
 
     public ViajeDto() {

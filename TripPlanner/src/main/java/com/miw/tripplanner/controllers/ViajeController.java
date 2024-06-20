@@ -2,6 +2,7 @@ package com.miw.tripplanner.controllers;
 
 import com.miw.tripplanner.dtos.ViajeDto;
 import com.miw.tripplanner.dtos.detalle.ViajeDetalleDto;
+import com.miw.tripplanner.dtos.requests.ViajeRequest;
 import com.miw.tripplanner.services.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +32,8 @@ public class ViajeController {
     }
 
     @PostMapping()
-    public Integer createViaje(@RequestBody Integer idUsuario) {
-        return viajeService.createViaje(idUsuario, new ViajeDto());
+    public Integer createViaje(@RequestBody ViajeRequest viajeRequest) {
+        return viajeService.createViaje(viajeRequest);
     }
 
     @PutMapping("/{id}")

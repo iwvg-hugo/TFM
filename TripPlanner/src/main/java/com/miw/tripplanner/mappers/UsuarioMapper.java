@@ -1,6 +1,7 @@
 package com.miw.tripplanner.mappers;
 
 import com.miw.tripplanner.dtos.*;
+import com.miw.tripplanner.dtos.detalle.UsuarioDetalle;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -14,5 +15,6 @@ public interface UsuarioMapper {
     void updateUsuario(Integer id, UsuarioDto usuarioDto);
     void deleteUsuario(Integer id);
     UsuarioDto findUsuarioByEmail(String email);
+    List<UsuarioDetalle> findUsuariosByIdViaje(Integer idViaje);
 
 }
