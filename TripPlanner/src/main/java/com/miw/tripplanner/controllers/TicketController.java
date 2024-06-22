@@ -25,6 +25,11 @@ public class TicketController {
         return ticketService.getTicket(id);
     }
 
+    @GetMapping("/viaje/{id}")
+    List<TicketDto> getTicketsByViaje(@PathVariable Integer id) {
+        return ticketService.getTicketsByViaje(id);
+    }
+
     @PostMapping()
     Integer createTicket(@RequestBody TicketRequest ticketRequest) {
         return ticketService.createTicket(ticketRequest.getIdUsuario(), ticketRequest.getTicketDto());

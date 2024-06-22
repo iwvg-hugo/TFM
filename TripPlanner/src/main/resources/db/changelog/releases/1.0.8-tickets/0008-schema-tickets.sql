@@ -10,3 +10,9 @@ CREATE TABLE Tickets (
     qr TEXT,
     CONSTRAINT fk_ticket_plan FOREIGN KEY (id_plan) REFERENCES Planes(id)
 );
+
+--changeset tripPlanner:0009-schema-ADD-Columns
+
+ALTER TABLE Tickets
+ADD COLUMN categoria VARCHAR(255),
+ADD COLUMN descripcion TEXT;

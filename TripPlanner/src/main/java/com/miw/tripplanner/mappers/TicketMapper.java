@@ -8,6 +8,7 @@ import java.util.List;
 public interface TicketMapper {
         List<TicketDto> getAllTickets();
         TicketDto getTicket(Integer id);
+        List<TicketDto> getTicketsByViaje(Integer idViaje);
         Integer createTicket(TicketDto ticketDto);
         void updateTicket(Integer id, TicketDto ticketDto);
         void deleteTicket(Integer id);

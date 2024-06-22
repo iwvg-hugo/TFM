@@ -14,4 +14,8 @@ public class TicketDto {
     private String asiento;
     private byte[] documento;
     private String qr;
+    private String categoria;
+    private String descripcion;
+    private HorarioDto horario;
+    private UbicacionDto ubicacion;
 }
