@@ -12,4 +12,6 @@ public interface UsuarioService {
     void updateUsuario(Integer id, UsuarioDto usuarioDto);
     void deleteUsuario(Integer id);
     List<UsuarioDetalle> findUsuariosByIdViaje(Integer idViaje);
+
+    UsuarioDto findUsuarioByEmail(String email);
 }

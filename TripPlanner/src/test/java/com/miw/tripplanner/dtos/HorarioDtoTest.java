@@ -8,7 +8,7 @@ class HorarioDtoTest {
     @Test
     void testEqualsAndHashCode() {
         EqualsVerifier.simple().forClass(HorarioDto.class)
-                .withRedefinedSuperclass() // Permite que la clase no sea final
+                .withRedefinedSuperclass()
                 .verify();
     }
 }

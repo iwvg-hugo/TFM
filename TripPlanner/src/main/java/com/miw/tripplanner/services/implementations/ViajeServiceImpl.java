@@ -46,6 +46,8 @@ public class ViajeServiceImpl implements ViajeService {
         viajeDetalle.setHorario(this.horarioMapper.getHorario(viaje.getIdHorario()));
         viajeDetalle.setPropuestas(this.propuestaMapper.findPropuestasByIdViaje(viaje.getId()));
         viajeDetalle.setPlanes(this.planService.findPlanesByIdViaje(viaje.getId()));
+        viajeDetalle.setTitulo(viaje.getTitulo());
+        viajeDetalle.setEmailParticipantes(this.usuarioViajeMapper.getUsuariosViaje(viaje.getId()));
         return viajeDetalle;
 
     }
@@ -60,6 +62,7 @@ public class ViajeServiceImpl implements ViajeService {
         ViajeDto viajeDto = new ViajeDto();
         viajeDto.setIdHorario(horarioMapper.createHorario(new HorarioDto(0, viajeRequest.getFechaInicio(), viajeRequest.getFechaFin())));
         viajeDto.setTitulo(viajeRequest.getTitulo());
+        viajeDto.setImagen(viajeRequest.getImagen());
         Integer id = viajeMapper.createViaje(viajeDto);
         Integer idUsuario = usuarioMapper.findUsuarioByEmail(viajeRequest.getUserEmail()).getId();
         if (idUsuario != null) {
@@ -79,8 +82,34 @@ public class ViajeServiceImpl implements ViajeService {
     }
 
     @Override
-    public void updateViaje(Integer id, ViajeDto viajeDto) {
-        viajeMapper.updateViaje(viajeDto);
+    public void updateViaje(Integer id, ViajeRequest viajeDto) {
+        ViajeDto viaje = new ViajeDto();
+        viaje.setId(id);
+        viaje.setTitulo(viajeDto.getTitulo());
+        viaje.setIdHorario(horarioMapper.createHorario(new HorarioDto(0, viajeDto.getFechaInicio(), viajeDto.getFechaFin())));
+
+        Integer idUsuario = usuarioMapper.findUsuarioByEmail(viajeDto.getUserEmail()).getId();
+        usuarioViajeMapper.deleteUsuariosViajesByIdViaje(id);
+
+        if (idUsuario != null) {
+            usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idUsuario, id));
+        }
+
+        for (String email : viajeDto.getEmailParticipantes()) {
+            Integer idParticipante = usuarioMapper.findUsuarioByEmail(email).getId();
+            if (idParticipante != null) {
+                usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idParticipante, id));
+            }
+        }
+
+        propuestaMapper.deletePropuestasByIdViaje(id);
+
+        for (PropuestaDto propuestaDto : viajeDto.getPropuestas()) {
+            propuestaDto.setIdViaje(id);
+            propuestaMapper.createPropuesta(propuestaDto);
+        }
+
+        viajeMapper.updateViaje(viaje);
     }
 
     @Override

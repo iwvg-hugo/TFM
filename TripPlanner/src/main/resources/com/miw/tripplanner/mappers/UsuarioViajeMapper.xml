@@ -8,10 +8,10 @@
             FROM usuarios_viajes
         </select>
 
-        <select id="getUsuarioViaje">
-            SELECT *
-            FROM usuarios_viajes
-            WHERE id = #{id}
+        <select id="getUsuariosViaje">
+            SELECT email
+            FROM usuarios left join usuarios_viajes on usuarios.id = usuarios_viajes.id_usuario
+            WHERE id_viaje = #{id}
         </select>
 
         <insert id="createUsuarioViaje" parameterType="com.miw.tripplanner.dtos.UsuarioViajeDto">

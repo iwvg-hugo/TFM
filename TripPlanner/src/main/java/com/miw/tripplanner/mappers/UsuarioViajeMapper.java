@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface UsuarioViajeMapper {
     List<UsuarioViajeDto> getAllUsuariosViajes();
-    UsuarioViajeDto getUsuarioViaje(Integer id);
+    List<String> getUsuariosViaje(Integer id);
     Integer createUsuarioViaje(UsuarioViajeDto usuarioViajeDto);
     void updateUsuarioViaje(Integer id, UsuarioViajeDto usuarioViajeDto);
     void deleteUsuarioViaje(Integer idUsuario, Integer idViaje);

@@ -16,4 +16,6 @@ public class ViajeDetalleDto {
     private HorarioDto horario;
     private List<PropuestaDto> propuestas;
     private List<PlanDetalleDto> planes;
+    private String titulo;
+    private List<String> emailParticipantes;
 }

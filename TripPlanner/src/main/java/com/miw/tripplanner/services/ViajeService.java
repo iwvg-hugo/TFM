@@ -11,6 +11,6 @@ public interface ViajeService {
     ViajeDetalleDto getViaje(Integer id);
     List<ViajeDto> findViajesByUserId(Integer id);
     Integer createViaje(ViajeRequest viajeRequest);
-    void updateViaje(Integer id, ViajeDto viajeDto);
+    void updateViaje(Integer id,  ViajeRequest viajeDto);
     void deleteViaje(Integer id);
 }

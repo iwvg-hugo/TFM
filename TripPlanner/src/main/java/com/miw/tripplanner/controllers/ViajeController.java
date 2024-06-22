@@ -37,7 +37,7 @@ public class ViajeController {
     }
 
     @PutMapping("/{id}")
-    public void updateViaje(@PathVariable Integer id, @RequestBody ViajeDto viajeDto) {
+    public void updateViaje(@PathVariable Integer id, @RequestBody  ViajeRequest viajeDto) {
         viajeService.updateViaje(id, viajeDto);
     }
 

@@ -44,4 +44,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     public List<UsuarioDetalle> findUsuariosByIdViaje(Integer idViaje) {
         return usuarioMapper.findUsuariosByIdViaje(idViaje);
     }
+
+    @Override
+    public UsuarioDto findUsuarioByEmail(String email) {
+        return usuarioMapper.findUsuarioByEmail(email);
+    }
 }

@@ -44,4 +44,9 @@ public class UsuarioController {
     public List<UsuarioDetalle> findUsuarios(@RequestParam(value = "idViaje", required = true) Integer idViaje) {
         return usuarioService.findUsuariosByIdViaje(idViaje);
     }
+
+    @GetMapping("/findUsuarioByEmail/{email}")
+    public UsuarioDto findUsuarioByEmail(@PathVariable String email) {
+        return usuarioService.findUsuarioByEmail(email);
+    }
 }

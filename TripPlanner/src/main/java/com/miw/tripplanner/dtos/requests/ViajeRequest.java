@@ -18,4 +18,5 @@ public class ViajeRequest {
     private Timestamp fechaFin;
     private List<String> emailParticipantes;
     private List<PropuestaDto> propuestas;
+    private String imagen;
 }

@@ -15,8 +15,8 @@
     </select>
 
     <select id="createViaje" parameterType="com.miw.tripplanner.dtos.ViajeDto">
-        INSERT INTO viajes (titulo, id_horario)
-        VALUES (#{titulo}, #{idHorario})
+        INSERT INTO viajes (titulo, id_horario, imagen)
+        VALUES (#{titulo}, #{idHorario}, #{imagen})
         RETURNING id
     </select>
 
