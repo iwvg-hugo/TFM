@@ -10,4 +10,8 @@ import lombok.NoArgsConstructor;
 public class PagoDto {
     private Integer id;
     private Float total;
+    private String descripcion;
+    private Integer idHorario;
+    private HorarioDto horario;
+
 }

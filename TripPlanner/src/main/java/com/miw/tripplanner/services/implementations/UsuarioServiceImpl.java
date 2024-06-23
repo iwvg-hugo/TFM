@@ -3,6 +3,7 @@ package com.miw.tripplanner.services.implementations;
 import com.miw.tripplanner.dtos.UsuarioDto;
 import com.miw.tripplanner.dtos.detalle.UsuarioDetalle;
 import com.miw.tripplanner.mappers.UsuarioMapper;
+import com.miw.tripplanner.mappers.UsuarioViajeMapper;
 import com.miw.tripplanner.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     private UsuarioMapper usuarioMapper;
 
+    @Autowired
+    private UsuarioViajeMapper usuarioViajeMapper;
+
     @Override
     public List<UsuarioDto> getAllUsuarios() {
         return usuarioMapper.getAllUsuarios();
+    }
+
+    @Override
+    public List<UsuarioDto> getUsuariosByIdViaje(Integer id) {
+        return usuarioViajeMapper.getUsuariosViajeByIdViaje(id);
     }
 
     @Override

@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface UsuarioService {
     List<UsuarioDto> getAllUsuarios();
+    List<UsuarioDto> getUsuariosByIdViaje(Integer id);
     UsuarioDto getUsuario(Integer id);
     Integer createUsuario(UsuarioDto usuarioDto);
     void updateUsuario(Integer id, UsuarioDto usuarioDto);

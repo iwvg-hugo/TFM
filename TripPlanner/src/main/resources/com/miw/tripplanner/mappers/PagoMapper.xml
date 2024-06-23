@@ -3,31 +3,42 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.miw.tripplanner.mappers.PagoMapper">
 
-        <select id="getAllPagos">
-            SELECT *
-            FROM pagos
-        </select>
+    <select id="getAllPagos">
+        SELECT *
+        FROM pagos
+    </select>
 
-        <select id="getPago">
-            SELECT *
-            FROM pagos
-            WHERE id = #{id}
-        </select>
+    <select id="getPagosByIdViaje">
+        SELECT p.*
+        FROM pagos p
+                 JOIN usuarios_pagos up ON p.id = up.id_pago
+                 JOIN usuarios_viajes uv ON up.id_usuario = uv.id_usuario
+        WHERE uv.id_viaje = #{id}
+    </select>
 
-        <select id="createPago" parameterType="com.miw.tripplanner.dtos.PagoDto">
-            INSERT INTO pagos (total)
-            VALUES (#{total})
-            RETURNING id
-        </select>
+    <select id="getPago">
+        SELECT *
+        FROM pagos
+        WHERE id = #{id}
+    </select>
 
-        <update id="updatePago" parameterType="com.miw.tripplanner.dtos.PagoDto">
-            UPDATE pagos
-            SET total = #{pagoDto.total}
-            WHERE id = #{id}
-        </update>
+    <select id="createPago" parameterType="com.miw.tripplanner.dtos.PagoDto">
+        INSERT INTO pagos (total, descripcion, id_horario)
+        VALUES (#{total}, #{descripcion}, #{idHorario})
+        RETURNING id
+    </select>
 
-        <delete id="deletePago">
-            DELETE FROM pagos
-            WHERE id = #{id}
-        </delete>
+    <update id="updatePago" parameterType="com.miw.tripplanner.dtos.PagoDto">
+        UPDATE pagos
+        SET total       = #{total},
+            descripcion = #{descripcion},
+            id_horario  = #{idHorario}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deletePago">
+        DELETE
+        FROM pagos
+        WHERE id = #{id}
+    </delete>
 </mapper>

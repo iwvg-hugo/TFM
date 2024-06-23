@@ -3,36 +3,47 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.miw.tripplanner.mappers.UsuarioViajeMapper">
 
-        <select id="getAllUsuariosViajes">
-            SELECT *
-            FROM usuarios_viajes
-        </select>
+    <select id="getAllUsuariosViajes">
+        SELECT *
+        FROM usuarios_viajes
+    </select>
 
-        <select id="getUsuariosViaje">
-            SELECT email
-            FROM usuarios left join usuarios_viajes on usuarios.id = usuarios_viajes.id_usuario
-            WHERE id_viaje = #{id}
-        </select>
+    <select id="getUsuariosViaje">
+        SELECT email
+        FROM usuarios
+                 left join usuarios_viajes on usuarios.id = usuarios_viajes.id_usuario
+        WHERE id_viaje = #{id}
+    </select>
 
-        <insert id="createUsuarioViaje" parameterType="com.miw.tripplanner.dtos.UsuarioViajeDto">
-            INSERT INTO usuarios_viajes (id_usuario, id_viaje)
-            VALUES (#{idUsuario}, #{idViaje})
-        </insert>
+    <select id="getUsuariosViajeByIdViaje">
+        SELECT *
+        FROM usuarios left join usuarios_viajes uv on usuarios.id = uv.id_usuario
+        WHERE uv.id_viaje = #{idViaje}
+    </select>
 
-        <update id="updateUsuarioViaje" parameterType="com.miw.tripplanner.dtos.UsuarioViajeDto">
-            UPDATE usuarios_viajes
-            SET id_usuario = #{usuarioViajeDto.idUsuario}, id_viaje = #{usuarioViajeDto.idViaje}
-            WHERE id = #{id}
-        </update>
+    <insert id="createUsuarioViaje" parameterType="com.miw.tripplanner.dtos.UsuarioViajeDto">
+        INSERT INTO usuarios_viajes (id_usuario, id_viaje)
+        VALUES (#{idUsuario}, #{idViaje})
+    </insert>
 
-        <delete id="deleteUsuarioViaje">
-            DELETE FROM usuarios_viajes
-            WHERE id_usuario = #{idUsuario} and id_viaje = #{idViaje}
-        </delete>
+    <update id="updateUsuarioViaje" parameterType="com.miw.tripplanner.dtos.UsuarioViajeDto">
+        UPDATE usuarios_viajes
+        SET id_usuario = #{usuarioViajeDto.idUsuario},
+            id_viaje   = #{usuarioViajeDto.idViaje}
+        WHERE id = #{id}
+    </update>
 
-        <delete id="deleteUsuariosViajesByIdViaje">
-            DELETE FROM usuarios_viajes
-            WHERE id_viaje = #{idViaje}
-        </delete>
+    <delete id="deleteUsuarioViaje">
+        DELETE
+        FROM usuarios_viajes
+        WHERE id_usuario = #{idUsuario}
+          and id_viaje = #{idViaje}
+    </delete>
+
+    <delete id="deleteUsuariosViajesByIdViaje">
+        DELETE
+        FROM usuarios_viajes
+        WHERE id_viaje = #{idViaje}
+    </delete>
 
 </mapper>

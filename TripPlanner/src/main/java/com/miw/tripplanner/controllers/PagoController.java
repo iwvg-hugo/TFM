@@ -17,8 +17,13 @@ public class PagoController {
     PagoService pagoService;
 
     @GetMapping()
-    public List<PagoDto> getPagos() {
+    public List<PagoDetalleDto> getPagos() {
         return pagoService.getAllPagos();
+    }
+
+    @GetMapping("/usuario/{id}")
+    public List<PagoDetalleDto> getPagosByIdViaje(@PathVariable Integer id) {
+        return pagoService.getPagosByIdViaje(id);
     }
 
     @GetMapping("/{id}")
@@ -28,7 +33,7 @@ public class PagoController {
 
     @PostMapping()
     public Integer createPago(@RequestBody PagoRequest pagoRequest) {
-        return pagoService.createPago(pagoRequest.getIdUsuario(), pagoRequest.getPagoDto(), pagoRequest.getPagador());
+        return pagoService.createPago(pagoRequest);
     }
 
     @PutMapping("/{id}")

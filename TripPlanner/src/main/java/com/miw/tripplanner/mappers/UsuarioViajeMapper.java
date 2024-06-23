@@ -1,5 +1,6 @@
 package com.miw.tripplanner.mappers;
 
+import com.miw.tripplanner.dtos.UsuarioDto;
 import com.miw.tripplanner.dtos.UsuarioViajeDto;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -9,6 +10,7 @@ import java.util.List;
 public interface UsuarioViajeMapper {
     List<UsuarioViajeDto> getAllUsuariosViajes();
     List<String> getUsuariosViaje(Integer id);
+    List<UsuarioDto> getUsuariosViajeByIdViaje(Integer id);
     Integer createUsuarioViaje(UsuarioViajeDto usuarioViajeDto);
     void updateUsuarioViaje(Integer id, UsuarioViajeDto usuarioViajeDto);
     void deleteUsuarioViaje(Integer idUsuario, Integer idViaje);

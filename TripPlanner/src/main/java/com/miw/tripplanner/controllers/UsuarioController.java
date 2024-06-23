@@ -25,6 +25,11 @@ public class UsuarioController {
         return usuarioService.getUsuario(id);
     }
 
+    @GetMapping("/viaje/{id}")
+    public List<UsuarioDto> getUsuariosByIdViaje(@PathVariable Integer id) {
+        return usuarioService.getUsuariosByIdViaje(id);
+    }
+
     @PostMapping()
     public Integer createUsuario(@RequestBody UsuarioDto usuarioDto) {
         return usuarioService.createUsuario(usuarioDto);

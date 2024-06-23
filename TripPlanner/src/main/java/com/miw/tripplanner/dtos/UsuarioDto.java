@@ -20,6 +20,7 @@ public class UsuarioDto implements UserDetails {
     private String password;
     private Date createdAt;
     private Date updatedAt;
+    private Boolean pagador;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

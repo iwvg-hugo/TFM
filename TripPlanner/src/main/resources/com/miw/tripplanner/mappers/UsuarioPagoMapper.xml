@@ -15,20 +15,15 @@
         </select>
 
         <insert id="createUsuarioPago" parameterType="com.miw.tripplanner.dtos.UsuarioPagoDto">
-            INSERT INTO usuarios_pagos (id_usuario, id_pago)
-            VALUES (#{idUsuario}, #{idPago})
+            INSERT INTO usuarios_pagos (id_usuario, id_pago, pagador)
+            VALUES (#{idUsuario}, #{idPago}, #{pagador})
         </insert>
 
         <update id="updateUsuarioPago" parameterType="com.miw.tripplanner.dtos.UsuarioPagoDto">
             UPDATE usuarios_pagos
-            SET id_usuario = #{usuarioPagoDto.idUsuario}, id_pago = #{usuarioPagoDto.idPago}
+            SET id_usuario = #{usuarioPagoDto.idUsuario}, id_pago = #{usuarioPagoDto.idPago}, pagador = #{usuarioPagoDto.pagador}
             WHERE id_usuario = #{id}
         </update>
-
-        <delete id="deleteUsuarioPago">
-            DELETE FROM usuarios_pagos
-            WHERE id_usuario = #{idUsuario} and id_pago = #{idPago}
-        </delete>
 
         <delete id="deleteUsuarioPagoByIdPago">
             DELETE FROM usuarios_pagos
