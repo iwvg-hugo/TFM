@@ -15,14 +15,14 @@
         </select>
         
         <select id="createPlan" parameterType="com.miw.tripplanner.dtos.PlanDto">
-            INSERT INTO planes (nombre, importancia, descripcion, id_viaje, id_ubicacion, id_horario, id_pago)
-            VALUES (#{nombre}, #{importancia}, #{descripcion}, #{idViaje}, #{idUbicacion}, #{idHorario}, #{idPago})
+            INSERT INTO planes (nombre, importancia, descripcion, id_viaje, id_ubicacion, id_horario)
+            VALUES (#{nombre}, #{importancia}, #{descripcion}, #{idViaje}, #{idUbicacion}, #{idHorario})
             RETURNING id
         </select>
         
         <update id="updatePlan" parameterType="com.miw.tripplanner.dtos.PlanDto">
             UPDATE planes
-            SET nombre = #{planDto.nombre}, importancia = #{planDto.importancia}, descripcion = #{planDto.descripcion} ,id_viaje = #{planDto.idViaje}, id_Ubicacion = #{planDto.idUbicacion}, id_horario = #{planDto.idHorario}, id_pago = #{planDto.idPago}
+            SET nombre = #{planDto.nombre}, importancia = #{planDto.importancia}, descripcion = #{planDto.descripcion} ,id_viaje = #{planDto.idViaje}, id_Ubicacion = #{planDto.idUbicacion}, id_horario = #{planDto.idHorario}
             WHERE id = #{id}
         </update>
         

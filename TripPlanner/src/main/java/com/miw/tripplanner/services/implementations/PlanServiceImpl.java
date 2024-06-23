@@ -1,8 +1,6 @@
 package com.miw.tripplanner.services.implementations;
 
-import com.miw.tripplanner.dtos.HorarioDto;
 import com.miw.tripplanner.dtos.PlanDto;
-import com.miw.tripplanner.dtos.UbicacionDto;
 import com.miw.tripplanner.dtos.detalle.PlanDetalleDto;
 import com.miw.tripplanner.mappers.*;
 import com.miw.tripplanner.services.PlanService;
@@ -28,9 +26,6 @@ public class PlanServiceImpl implements PlanService {
     @Autowired
     private TicketMapper ticketMapper;
 
-    @Autowired
-    private PagoServiceImpl pagoServiceImpl;
-
     @Override
     public List<PlanDto> getAllPlanes() {
         return this.planMapper.getAllPlanes();
@@ -44,7 +39,6 @@ public class PlanServiceImpl implements PlanService {
         planDetalle.setIdViaje(plan.getIdViaje());
         planDetalle.setUbicacion(this.ubicacionMapper.getUbicacion(plan.getIdUbicacion()));
         planDetalle.setHorario(this.horarioMapper.getHorario(plan.getIdHorario()));
-        planDetalle.setIdPago(plan.getIdPago());
         planDetalle.setNombre(plan.getNombre());
         planDetalle.setImportancia(plan.getImportancia());
         planDetalle.setDescripcion(plan.getDescripcion());
@@ -53,13 +47,18 @@ public class PlanServiceImpl implements PlanService {
 
     @Override
     public Integer createPlan(PlanDto planDto) {
-        planDto.setIdUbicacion(this.ubicacionMapper.createUbicacion(new UbicacionDto()));
-        planDto.setIdHorario(this.horarioMapper.createHorario(new HorarioDto()));
+        planDto.setIdUbicacion(this.ubicacionMapper.createUbicacion(planDto.getUbicacion()));
+        planDto.setIdHorario(this.horarioMapper.createHorario(planDto.getHorario()));
         return planMapper.createPlan(planDto);
     }
 
     @Override
     public void updatePlan(Integer id, PlanDto planDto) {
+        this.ubicacionMapper.deleteUbicacion(planDto.getIdUbicacion());
+        planDto.setIdUbicacion(this.ubicacionMapper.createUbicacion(planDto.getUbicacion()));
+
+        this.horarioMapper.deleteHorario(planDto.getIdHorario());
+        planDto.setIdHorario(this.horarioMapper.createHorario(planDto.getHorario()));
         this.planMapper.updatePlan(id, planDto);
     }
 
@@ -67,7 +66,6 @@ public class PlanServiceImpl implements PlanService {
     public void deletePlan(Integer id) {
         PlanDto plan = planMapper.getPlan(id);
         this.ticketMapper.deleteTicketsByIdPlan(id);
-        this.pagoServiceImpl.deletePago(id);
         this.planMapper.deletePlan(id);
         this.horarioMapper.deleteHorario(plan.getIdHorario());
         this.ubicacionMapper.deleteUbicacion(plan.getIdUbicacion());

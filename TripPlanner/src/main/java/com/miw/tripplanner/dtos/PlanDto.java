@@ -9,8 +9,9 @@ public class PlanDto {
     private Integer id;
     private Integer idViaje;
     private Integer idUbicacion;
+    private UbicacionDto ubicacion;
     private Integer idHorario;
-    private Integer idPago;
+    private HorarioDto horario;
     private String nombre;
     private Integer importancia;
     private String descripcion;
@@ -18,8 +19,7 @@ public class PlanDto {
     public PlanDto() {
         this.id = 0;
         this.idViaje = 0;
-        this.idUbicacion = 0;
         this.idHorario = 0;
-        this.idPago = 0;
+        this.idUbicacion = 0;
     }
 }

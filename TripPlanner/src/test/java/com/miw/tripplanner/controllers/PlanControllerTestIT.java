@@ -110,7 +110,6 @@ class PlanControllerTestIT extends BaseTest {
         planDto.setNombre("Plan 1");
         planDto.setImportancia(1);
         planDto.setDescripcion("Descripcion del plan 1");
-        planDto.setIdPago(idPago);
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
@@ -156,7 +155,6 @@ class PlanControllerTestIT extends BaseTest {
         planDto.setNombre("Plan 2");
         planDto.setImportancia(1);
         planDto.setDescripcion("Descripcion del plan 1");
-        planDto.setIdPago(9999);
         planDto.setIdUbicacion(9999);
         planDto.setIdHorario(9999);
 
