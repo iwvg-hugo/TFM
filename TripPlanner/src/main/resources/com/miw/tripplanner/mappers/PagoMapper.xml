@@ -30,9 +30,9 @@
 
     <update id="updatePago" parameterType="com.miw.tripplanner.dtos.PagoDto">
         UPDATE pagos
-        SET total       = #{total},
-            descripcion = #{descripcion},
-            id_horario  = #{idHorario}
+        SET total       = #{pagoDto.total},
+            descripcion = #{pagoDto.descripcion},
+            id_horario  = #{pagoDto.idHorario}
         WHERE id = #{id}
     </update>
 

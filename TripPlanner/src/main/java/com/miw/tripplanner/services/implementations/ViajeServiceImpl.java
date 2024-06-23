@@ -1,9 +1,6 @@
 package com.miw.tripplanner.services.implementations;
 
-import com.miw.tripplanner.dtos.HorarioDto;
-import com.miw.tripplanner.dtos.PropuestaDto;
-import com.miw.tripplanner.dtos.UsuarioViajeDto;
-import com.miw.tripplanner.dtos.ViajeDto;
+import com.miw.tripplanner.dtos.*;
 import com.miw.tripplanner.dtos.detalle.ViajeDetalleDto;
 import com.miw.tripplanner.dtos.requests.ViajeRequest;
 import com.miw.tripplanner.mappers.*;
@@ -64,9 +61,9 @@ public class ViajeServiceImpl implements ViajeService {
         viajeDto.setTitulo(viajeRequest.getTitulo());
         viajeDto.setImagen(viajeRequest.getImagen());
         Integer id = viajeMapper.createViaje(viajeDto);
-        Integer idUsuario = usuarioMapper.findUsuarioByEmail(viajeRequest.getUserEmail()).getId();
-        if (idUsuario != null) {
-            usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idUsuario, id));
+        UsuarioDto usuarioDto = usuarioMapper.findUsuarioByEmail(viajeRequest.getUserEmail());
+        if (usuarioDto != null) {
+            usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(usuarioDto.getId(), id));
         }
         for (String email : viajeRequest.getEmailParticipantes()) {
             Integer idParticipante = usuarioMapper.findUsuarioByEmail(email).getId();

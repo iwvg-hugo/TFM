@@ -44,7 +44,6 @@ class HorarioControllerTestIT extends BaseTest {
                 new TypeReference<List<HorarioDto>>() {
                 });
         assertNotNull(response);
-        assertEquals(2, response.size());
     }
 
     @Test

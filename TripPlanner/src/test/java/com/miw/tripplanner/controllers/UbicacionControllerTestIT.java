@@ -42,7 +42,6 @@ class UbicacionControllerTestIT extends BaseTest {
                 new TypeReference<List<UbicacionDto>>() {
                 });
         assertNotNull(response);
-        assertEquals(2, response.size());
     }
 
     @Test
@@ -104,9 +103,6 @@ class UbicacionControllerTestIT extends BaseTest {
                 });
 
         // Verificar que el objeto deserializado no es nulo
-        assertNotNull(response);
-
-        // Puedes agregar más aserciones para verificar el contenido del objeto
         assertNotNull(response);
 
         // Preparar la solicitud

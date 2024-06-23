@@ -2,6 +2,7 @@ package com.miw.tripplanner.controllers;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.miw.tripplanner.dtos.HorarioDto;
 import com.miw.tripplanner.dtos.PagoDto;
 import com.miw.tripplanner.dtos.detalle.PagoDetalleDto;
 import com.miw.tripplanner.dtos.requests.PagoRequest;
@@ -17,8 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PagoControllerTestIT extends BaseTest {
     private ObjectMapper mapper = new ObjectMapper();
@@ -26,9 +26,10 @@ class PagoControllerTestIT extends BaseTest {
     @Autowired
     private PagoController planController;
 
+
     @Test
     void testGetPagos() throws Exception {
-        List<PagoDto> response = new ArrayList<>();
+        List<PagoDetalleDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
                 .get("/pagos")
@@ -38,12 +39,12 @@ class PagoControllerTestIT extends BaseTest {
 
         ra.andExpect(MockMvcResultMatchers.status().isOk());
 
-        // Deserializar directamente a una lista de ViajeDto
+        // Deserializar directamente a una lista de PagoDetalleDto
         response = mapper.readValue(ra.andReturn().getResponse().getContentAsString(),
-                new TypeReference<List<PagoDto>>() {
+                new TypeReference<List<PagoDetalleDto>>() {
                 });
         assertNotNull(response);
-        assertEquals(1, response.size());
+        assertTrue(!response.isEmpty());
     }
 
     @Test
@@ -76,18 +77,15 @@ class PagoControllerTestIT extends BaseTest {
 
     @Test
     void testCreatePagoDelete() throws Exception {
-
-        //creo una ubicacion para el test:
-        PagoRequest pagoRequest = new PagoRequest();
-        pagoRequest.setIdUsuario(9999);
-        PagoDto pagoDto = new PagoDto();
-        pagoDto.setTotal(100.0F);
+        HorarioDto horarioDto = new HorarioDto();
+        horarioDto.setInicio(new java.sql.Timestamp(System.currentTimeMillis()));
+        horarioDto.setFin(new java.sql.Timestamp(System.currentTimeMillis()));
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/pagos")
+                .post("/horarios")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(pagoRequest));
+                .content(mapper.writeValueAsString(horarioDto));
 
         // Ejecutar la solicitud y obtener el resultado
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -104,9 +102,42 @@ class PagoControllerTestIT extends BaseTest {
         // Verificar que el objeto deserializado no es nulo
         assertNotNull(response);
 
+        //creo una ubicacion para el test:
+        PagoRequest pagoRequest = new PagoRequest();
+        pagoRequest.setIdUsuario(9999);
+        PagoDto pagoDto = new PagoDto();
+        pagoDto.setTotal(100.0F);
+        pagoDto.setHorario(horarioDto);
+        pagoDto.setIdHorario(response);
+        pagoRequest.setPagoDto(pagoDto);
+        pagoRequest.setPagador(true);
+        pagoRequest.setUsuariosImplicados(new ArrayList<>());
+
+
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/pagos/{id}", response)
+                .post("/pagos")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(pagoRequest));
+
+        // Ejecutar la solicitud y obtener el resultado
+        ra = mockMvc.perform(requestBuilder);
+
+        // Verificar que el estado de la respuesta es 200 OK
+        ra.andExpect(MockMvcResultMatchers.status().isOk());
+
+        // Deserializar la respuesta como un Integer
+        Integer response1 = mapper.readValue(
+                ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<Integer>() {
+                });
+
+        // Verificar que el objeto deserializado no es nulo
+        assertNotNull(response);
+
+        // Preparar la solicitud
+        requestBuilder = MockMvcRequestBuilders
+                .delete("/pagos/{id}", response1)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado

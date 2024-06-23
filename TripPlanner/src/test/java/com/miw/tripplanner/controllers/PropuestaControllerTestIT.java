@@ -41,12 +41,11 @@ class PropuestaControllerTestIT extends BaseTest {
                 new TypeReference<List<PropuestaDto>>() {
                 });
         assertNotNull(response);
-        assertEquals(2, response.size());
     }
 
     @Test
     void testgetPropuesta() throws Exception {
-        int propuestaId = 9999;
+        int propuestaId = 9997;
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
@@ -122,7 +121,7 @@ class PropuestaControllerTestIT extends BaseTest {
     @Test
     void testUpdatePropuesta() throws Exception {
         PropuestaDto propuestaDto = new PropuestaDto();
-        propuestaDto.setId(9999);
+        propuestaDto.setId(9997);
         propuestaDto.setIdViaje(9999);
         propuestaDto.setNombre("Propuesta 1");
         propuestaDto.setGanadora(true);

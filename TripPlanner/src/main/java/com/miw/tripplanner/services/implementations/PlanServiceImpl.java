@@ -54,8 +54,9 @@ public class PlanServiceImpl implements PlanService {
 
     @Override
     public void updatePlan(Integer id, PlanDto planDto) {
-        this.ubicacionMapper.deleteUbicacion(planDto.getIdUbicacion());
+        Integer ubicacionId = planDto.getIdUbicacion();
         planDto.setIdUbicacion(this.ubicacionMapper.createUbicacion(planDto.getUbicacion()));
+        this.ubicacionMapper.deleteUbicacion(ubicacionId);
 
         this.horarioMapper.deleteHorario(planDto.getIdHorario());
         planDto.setIdHorario(this.horarioMapper.createHorario(planDto.getHorario()));

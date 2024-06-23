@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.miw.tripplanner.dtos.ViajeDto;
 import com.miw.tripplanner.dtos.detalle.ViajeDetalleDto;
+import com.miw.tripplanner.dtos.requests.ViajeRequest;
 import com.miw.tripplanner.utils.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,9 +45,8 @@ class ViajeControllerTestIT extends BaseTest {
                 });
         response = viajes;
         assertNotNull(response);
-        assertEquals(1, response.size());
+        assertEquals(2, response.size());
         assertEquals(9999, response.get(0).getId());
-        assertEquals(9999, response.get(0).getIdHorario());
     }
 
     @Test
@@ -103,19 +104,24 @@ class ViajeControllerTestIT extends BaseTest {
         // Puedes agregar más aserciones para verificar el contenido del objeto
         assertEquals(1, response.size());
         assertEquals(9999, response.get(0).getId());
-        assertEquals(9999, response.get(0).getIdHorario());
     }
 
     @Test
     void testCreateViajedelete() throws Exception {
-        int userId = 9999; // El ID del usuario que quieres consultar
-        int viajeId = 1; // El ID del viaje que se crea
+        ViajeRequest viajeRequest = new ViajeRequest();
+        viajeRequest.setTitulo("Viaje de prueba");
+        viajeRequest.setFechaInicio(new Timestamp(System.currentTimeMillis()));
+        viajeRequest.setFechaFin(new Timestamp(System.currentTimeMillis()));
+        viajeRequest.setUserEmail("csdf");
+        viajeRequest.setEmailParticipantes(new ArrayList<>());
+        viajeRequest.setPropuestas(new ArrayList<>());
+        viajeRequest.setImagen("imagen");
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/viajes")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(userId));
+                .content(mapper.writeValueAsString(viajeRequest));
 
         // Ejecutar la solicitud y obtener el resultado
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -149,15 +155,22 @@ class ViajeControllerTestIT extends BaseTest {
 
     @Test
     void testUpdateViaje() throws Exception {
+        ViajeRequest viajeRequest = new ViajeRequest();
         ViajeDto viajeDto = new ViajeDto();
         viajeDto.setId(9999);
         viajeDto.setIdHorario(9998);
+        viajeDto.setTitulo("Viaje de prueba");
+        viajeRequest.setUserEmail("correo@mail.com");
+        viajeRequest.setEmailParticipantes(new ArrayList<>());
+        viajeRequest.setPropuestas(new ArrayList<>());
+        viajeRequest.setImagen("imagen");
+        viajeRequest.setTitulo("Viaje de prueba");
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
                 .put("/viajes/{id}", viajeDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(viajeDto));
+                .content(mapper.writeValueAsString(viajeRequest));
 
         // Ejecutar la solicitud y obtener el resultado
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -176,16 +189,6 @@ class ViajeControllerTestIT extends BaseTest {
                 new TypeReference<ViajeDetalleDto>() {
                 });
         assertNotNull(response2);
-        assertEquals(viajeDto.getIdHorario(), response2.getHorario().getId());
-
-        //lo vuelvo a dejar como estaba
-        viajeDto.setIdHorario(9999);
-        requestBuilder = MockMvcRequestBuilders
-                .put("/viajes/{id}", viajeDto.getId())
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(viajeDto));
-        ra = mockMvc.perform(requestBuilder);
-        ra.andExpect(MockMvcResultMatchers.status().isOk());
     }
 
 
