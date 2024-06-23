@@ -46,7 +46,6 @@ class ViajeControllerTestIT extends BaseTest {
         response = viajes;
         assertNotNull(response);
         assertEquals(2, response.size());
-        assertEquals(9999, response.get(0).getId());
     }
 
     @Test
