@@ -34,7 +34,7 @@ class PlanControllerTestIT extends BaseTest {
         List<PlanDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/planes")
+                .get("/api/planes")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -55,7 +55,7 @@ class PlanControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/planes/{id}", planId)
+                .get("/api/planes/{id}", planId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -97,7 +97,7 @@ class PlanControllerTestIT extends BaseTest {
         pagoRequest.setUsuariosImplicados(usuariosImplicados);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/pagos")
+                .post("/api/pagos")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(pagoRequest));
 
@@ -125,7 +125,7 @@ class PlanControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .post("/planes")
+                .post("/api/planes")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(planDto));
 
@@ -149,7 +149,7 @@ class PlanControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/planes/{id}", response)
+                .delete("/api/planes/{id}", response)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -173,7 +173,7 @@ class PlanControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/ubicaciones")
+                .post("/api/ubicaciones")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(ubicacionDto));
 
@@ -198,7 +198,7 @@ class PlanControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .post("/horarios")
+                .post("/api/horarios")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(horarioDto));
 
@@ -229,7 +229,7 @@ class PlanControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .put("/planes/{id}", planDto.getId())
+                .put("/api/planes/{id}", planDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(planDto));
 
@@ -241,7 +241,7 @@ class PlanControllerTestIT extends BaseTest {
 
         //compruebo que se actualizo con un getbyid
         requestBuilder = MockMvcRequestBuilders
-                .get("/planes/{id}", planDto.getId())
+                .get("/api/planes/{id}", planDto.getId())
                 .contentType(MediaType.APPLICATION_JSON);
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
@@ -255,7 +255,7 @@ class PlanControllerTestIT extends BaseTest {
         //lo vuelvo a dejar como estaba
         planDto.setNombre("Vuelo");
         requestBuilder = MockMvcRequestBuilders
-                .put("/propuestas/{id}", planDto.getId())
+                .put("/api/propuestas/{id}", planDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(planDto));
         ra = mockMvc.perform(requestBuilder);
@@ -268,7 +268,7 @@ class PlanControllerTestIT extends BaseTest {
         List<PlanDetalleDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/planes/search?idViaje={idViaje}", idViaje)
+                .get("/api/planes/search?idViaje={idViaje}", idViaje)
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);

@@ -32,7 +32,7 @@ class HorarioControllerTestIT extends BaseTest {
         List<HorarioDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/horarios")
+                .get("/api/horarios")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -52,7 +52,7 @@ class HorarioControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/horarios/{id}", horarioId)
+                .get("/api/horarios/{id}", horarioId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -83,7 +83,7 @@ class HorarioControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/horarios")
+                .post("/api/horarios")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(horarioDto));
 
@@ -104,7 +104,7 @@ class HorarioControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/horarios/{id}", response)
+                .delete("/api/horarios/{id}", response)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -123,7 +123,7 @@ class HorarioControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .put("/horarios/{id}", horarioDto.getId())
+                .put("/api/horarios/{id}", horarioDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(horarioDto));
 
@@ -135,7 +135,7 @@ class HorarioControllerTestIT extends BaseTest {
 
         //compruebo que se actualizo con un getbyid
         requestBuilder = MockMvcRequestBuilders
-                .get("/horarios/{id}", horarioDto.getId())
+                .get("/api/horarios/{id}", horarioDto.getId())
                 .contentType(MediaType.APPLICATION_JSON);
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());

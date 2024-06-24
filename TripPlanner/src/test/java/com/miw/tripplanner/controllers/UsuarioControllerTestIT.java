@@ -30,7 +30,7 @@ class UsuarioControllerTestIT extends BaseTest {
         List<UsuarioDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/usuarios")
+                .get("/api/usuarios")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -52,7 +52,7 @@ class UsuarioControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/usuarios/{id}", usuarioId)
+                .get("/api/usuarios/{id}", usuarioId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -84,7 +84,7 @@ class UsuarioControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/usuarios")
+                .post("/api/usuarios")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(usua));
 
@@ -109,7 +109,7 @@ class UsuarioControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/usuarios/{id}", response)
+                .delete("/api/usuarios/{id}", response)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -131,7 +131,7 @@ class UsuarioControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .put("/usuarios/{id}", usuarioDto.getId())
+                .put("/api/usuarios/{id}", usuarioDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(usuarioDto));
 
@@ -143,7 +143,7 @@ class UsuarioControllerTestIT extends BaseTest {
 
         //compruebo que se actualizo con un getbyid
         requestBuilder = MockMvcRequestBuilders
-                .get("/usuarios/{id}", usuarioDto.getId())
+                .get("/api/usuarios/{id}", usuarioDto.getId())
                 .contentType(MediaType.APPLICATION_JSON);
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
@@ -157,7 +157,7 @@ class UsuarioControllerTestIT extends BaseTest {
         //lo vuelvo a dejar como estaba
         usuarioDto.setFullName("test");
         requestBuilder = MockMvcRequestBuilders
-                .put("/usuarios/{id}", usuarioDto.getId())
+                .put("/api/usuarios/{id}", usuarioDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(usuarioDto));
         ra = mockMvc.perform(requestBuilder);

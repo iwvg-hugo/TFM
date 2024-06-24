@@ -31,7 +31,7 @@ class TicketControllerTestIT extends BaseTest {
         List<TicketDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/tickets")
+                .get("/api/tickets")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -52,7 +52,7 @@ class TicketControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/tickets/{id}", ticketId)
+                .get("/api/tickets/{id}", ticketId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -89,7 +89,7 @@ class TicketControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/tickets")
+                .post("/api/tickets")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(ticketRequestDto));
 
@@ -113,7 +113,7 @@ class TicketControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/tickets/{id}", response)
+                .delete("/api/tickets/{id}", response)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -134,7 +134,7 @@ class TicketControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .put("/tickets/{id}", ticketDto.getId())
+                .put("/api/tickets/{id}", ticketDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(ticketDto));
 
@@ -146,7 +146,7 @@ class TicketControllerTestIT extends BaseTest {
 
         //compruebo que se actualizo con un getbyid
         requestBuilder = MockMvcRequestBuilders
-                .get("/tickets/{id}", ticketDto.getId())
+                .get("/api/tickets/{id}", ticketDto.getId())
                 .contentType(MediaType.APPLICATION_JSON);
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
@@ -160,7 +160,7 @@ class TicketControllerTestIT extends BaseTest {
         //lo vuelvo a dejar como estaba
         ticketDto.setQr("12345678");
         requestBuilder = MockMvcRequestBuilders
-                .put("/tickets/{id}", ticketDto.getId())
+                .put("/api/tickets/{id}", ticketDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(ticketDto));
         ra = mockMvc.perform(requestBuilder);

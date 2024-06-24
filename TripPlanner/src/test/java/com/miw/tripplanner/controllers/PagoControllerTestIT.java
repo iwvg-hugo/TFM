@@ -32,7 +32,7 @@ class PagoControllerTestIT extends BaseTest {
         List<PagoDetalleDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/pagos")
+                .get("/api/pagos")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -53,7 +53,7 @@ class PagoControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/pagos/{id}", pagoId)
+                .get("/api/pagos/{id}", pagoId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -83,7 +83,7 @@ class PagoControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/horarios")
+                .post("/api/horarios")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(horarioDto));
 
@@ -116,7 +116,7 @@ class PagoControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .post("/pagos")
+                .post("/api/pagos")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(pagoRequest));
 
@@ -137,7 +137,7 @@ class PagoControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/pagos/{id}", response1)
+                .delete("/api/pagos/{id}", response1)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -155,7 +155,7 @@ class PagoControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .put("/pagos/{id}", pagoDto.getId())
+                .put("/api/pagos/{id}", pagoDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(pagoDto));
 
@@ -167,7 +167,7 @@ class PagoControllerTestIT extends BaseTest {
 
         //compruebo que se actualizo con un getbyid
         requestBuilder = MockMvcRequestBuilders
-                .get("/pagos/{id}", pagoDto.getId())
+                .get("/api/pagos/{id}", pagoDto.getId())
                 .contentType(MediaType.APPLICATION_JSON);
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
@@ -181,7 +181,7 @@ class PagoControllerTestIT extends BaseTest {
         //lo vuelvo a dejar como estaba
         pagoDto.setTotal(1000F);
         requestBuilder = MockMvcRequestBuilders
-                .put("/pagos/{id}", pagoDto.getId())
+                .put("/api/pagos/{id}", pagoDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(pagoDto));
         ra = mockMvc.perform(requestBuilder);

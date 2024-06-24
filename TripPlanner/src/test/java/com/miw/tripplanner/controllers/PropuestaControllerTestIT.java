@@ -29,7 +29,7 @@ class PropuestaControllerTestIT extends BaseTest {
         List<PropuestaDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/propuestas")
+                .get("/api/propuestas")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -49,7 +49,7 @@ class PropuestaControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/propuestas/{id}", propuestaId)
+                .get("/api/propuestas/{id}", propuestaId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -84,7 +84,7 @@ class PropuestaControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/propuestas")
+                .post("/api/propuestas")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(propuestaDto));
 
@@ -108,7 +108,7 @@ class PropuestaControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/propuestas/{id}", response)
+                .delete("/api/propuestas/{id}", response)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -131,7 +131,7 @@ class PropuestaControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .put("/propuestas/{id}", propuestaDto.getId())
+                .put("/api/propuestas/{id}", propuestaDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(propuestaDto));
 
@@ -143,7 +143,7 @@ class PropuestaControllerTestIT extends BaseTest {
 
         //compruebo que se actualizo con un getbyid
         requestBuilder = MockMvcRequestBuilders
-                .get("/propuestas/{id}", propuestaDto.getId())
+                .get("/api/propuestas/{id}", propuestaDto.getId())
                 .contentType(MediaType.APPLICATION_JSON);
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
@@ -157,7 +157,7 @@ class PropuestaControllerTestIT extends BaseTest {
         //lo vuelvo a dejar como estaba
         propuestaDto.setGanadora(false);
         requestBuilder = MockMvcRequestBuilders
-                .put("/propuestas/{id}", propuestaDto.getId())
+                .put("/api/propuestas/{id}", propuestaDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(propuestaDto));
         ra = mockMvc.perform(requestBuilder);

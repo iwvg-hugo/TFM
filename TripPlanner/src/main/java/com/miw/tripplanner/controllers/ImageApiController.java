@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import com.miw.tripplanner.services.ImagenesService;
 
 @RestController
-@RequestMapping("/imagenes")
+@RequestMapping("/api/imagenes")
 public class ImageApiController {
 
     @Autowired

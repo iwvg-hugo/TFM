@@ -30,7 +30,7 @@ class UbicacionControllerTestIT extends BaseTest {
         List<UbicacionDto> response = new ArrayList<>();
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/ubicaciones")
+                .get("/api/ubicaciones")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(null));
 
         ResultActions ra = mockMvc.perform(requestBuilder);
@@ -50,7 +50,7 @@ class UbicacionControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("/ubicaciones/{id}", ubicacionId)
+                .get("/api/ubicaciones/{id}", ubicacionId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -86,7 +86,7 @@ class UbicacionControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/ubicaciones")
+                .post("/api/ubicaciones")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(ubicacionDto));
 
@@ -107,7 +107,7 @@ class UbicacionControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         requestBuilder = MockMvcRequestBuilders
-                .delete("/ubicaciones/{id}", response)
+                .delete("/api/ubicaciones/{id}", response)
                 .contentType(MediaType.APPLICATION_JSON);
 
         // Ejecutar la solicitud y obtener el resultado
@@ -129,7 +129,7 @@ class UbicacionControllerTestIT extends BaseTest {
 
         // Preparar la solicitud
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .put("/ubicaciones/{id}", ubicacionDto.getId())
+                .put("/api/ubicaciones/{id}", ubicacionDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(ubicacionDto));
 
@@ -141,7 +141,7 @@ class UbicacionControllerTestIT extends BaseTest {
 
         //compruebo que se actualizo con un getbyid
         requestBuilder = MockMvcRequestBuilders
-                .get("/ubicaciones/{id}", ubicacionDto.getId())
+                .get("/api/ubicaciones/{id}", ubicacionDto.getId())
                 .contentType(MediaType.APPLICATION_JSON);
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
@@ -155,7 +155,7 @@ class UbicacionControllerTestIT extends BaseTest {
         //lo vuelvo a dejar como estaba
         ubicacionDto.setCoordenadas("coordenadas");
         requestBuilder = MockMvcRequestBuilders
-                .put("/ubicaciones/{id}", ubicacionDto.getId())
+                .put("/api/ubicaciones/{id}", ubicacionDto.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(ubicacionDto));
         ra = mockMvc.perform(requestBuilder);
