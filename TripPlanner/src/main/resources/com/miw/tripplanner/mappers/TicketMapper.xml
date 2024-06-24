@@ -21,8 +21,8 @@
     </select>
 
     <select id="createTicket" parameterType="com.miw.tripplanner.dtos.TicketDto">
-        INSERT INTO tickets (id_plan, nombre, asiento, documento, qr)
-        VALUES (#{idPlan}, #{nombre}, #{asiento}, #{documento}, #{qr})
+        INSERT INTO tickets (id_plan, nombre, asiento, documento, qr, descripcion, categoria)
+        VALUES (#{idPlan}, #{nombre}, #{asiento}, #{documento}, #{qr}, #{descripcion}, #{categoria})
         RETURNING id
     </select>
 
