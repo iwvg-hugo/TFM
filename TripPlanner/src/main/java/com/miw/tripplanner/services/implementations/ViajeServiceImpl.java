@@ -66,7 +66,11 @@ public class ViajeServiceImpl implements ViajeService {
             usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(usuarioDto.getId(), id));
         }
         for (String email : viajeRequest.getEmailParticipantes()) {
-            Integer idParticipante = usuarioMapper.findUsuarioByEmail(email).getId();
+            UsuarioDto usuario = usuarioMapper.findUsuarioByEmail(email);
+            Integer idParticipante = null;
+            if (usuario != null) {
+                idParticipante = usuario.getId();
+            }
             if (idParticipante != null) {
                 usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idParticipante, id));
             }
@@ -93,7 +97,11 @@ public class ViajeServiceImpl implements ViajeService {
         }
 
         for (String email : viajeDto.getEmailParticipantes()) {
-            Integer idParticipante = usuarioMapper.findUsuarioByEmail(email).getId();
+            UsuarioDto usuario = usuarioMapper.findUsuarioByEmail(email);
+            Integer idParticipante = null;
+            if (usuario != null) {
+                idParticipante = usuario.getId();
+            }
             if (idParticipante != null) {
                 usuarioViajeMapper.createUsuarioViaje(new UsuarioViajeDto(idParticipante, id));
             }
