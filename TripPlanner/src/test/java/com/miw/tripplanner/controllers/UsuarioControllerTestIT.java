@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.miw.tripplanner.dtos.UsuarioDto;
+import com.miw.tripplanner.dtos.detalle.UsuarioDetalle;
 import com.miw.tripplanner.utils.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -162,6 +163,97 @@ class UsuarioControllerTestIT extends BaseTest {
                 .content(mapper.writeValueAsString(usuarioDto));
         ra = mockMvc.perform(requestBuilder);
         ra.andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    void testGetUsuariosByIdViaje() throws Exception {
+        int viajeId = 9999;
+
+        // Preparar la solicitud
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
+                .get("/api/usuarios/viaje/{id}", viajeId)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        // Ejecutar la solicitud y obtener el resultado
+        ResultActions ra = mockMvc.perform(requestBuilder);
+
+        // Verificar que el estado de la respuesta es 200 OK
+        ra.andExpect(MockMvcResultMatchers.status().isOk());
+
+        // Deserializar la respuesta como un ViajeDto
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        List<UsuarioDto> response = mapper.readValue(
+                ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<List<UsuarioDto>>() {
+                });
+
+        // Verificar que el objeto deserializado no es nulo
+        assertNotNull(response);
+
+        assertEquals(1, response.size());
+    }
+
+    @Test
+    void testFindUsuarios() throws Exception {
+        int viajeId = 9999;
+
+        // Preparar la solicitud
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
+                .get("/api/usuarios/search?idViaje={idViaje}", viajeId)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        // Ejecutar la solicitud y obtener el resultado
+        ResultActions ra = mockMvc.perform(requestBuilder);
+
+        // Verificar que el estado de la respuesta es 200 OK
+        ra.andExpect(MockMvcResultMatchers.status().isOk());
+
+        // Deserializar la respuesta como un ViajeDto
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        List<UsuarioDetalle> response = mapper.readValue(
+                ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<List<UsuarioDetalle>>() {
+                });
+
+        // Verificar que el objeto deserializado no es nulo
+        assertNotNull(response);
+
+        assertEquals(1, response.size());
+    }
+
+    @Test
+    void testFindUsuarioByEmail() throws Exception {
+        String email = "correo";
+
+        // Preparar la solicitud
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
+                .get("/api/usuarios/findUsuarioByEmail/{email}", email)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        // Ejecutar la solicitud y obtener el resultado
+        ResultActions ra = mockMvc.perform(requestBuilder);
+
+        // Verificar que el estado de la respuesta es 200 OK
+        ra.andExpect(MockMvcResultMatchers.status().isOk());
+
+        // Obtener el contenido de la respuesta
+        String jsonResponse = ra.andReturn().getResponse().getContentAsString();
+
+        // Imprimir la respuesta para depuración
+        System.out.println("Response: " + jsonResponse);
+
+        // Deserializar la respuesta como un UsuarioDto
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        UsuarioDto response = mapper.readValue(
+                jsonResponse,
+                new TypeReference<UsuarioDto>() {
+                });
+
+        // Verificar que el objeto deserializado no es nulo
+        assertNotNull(response);
+
+        // Verificar que el email es correcto
+        assertEquals(email, response.getEmail());
     }
 
 

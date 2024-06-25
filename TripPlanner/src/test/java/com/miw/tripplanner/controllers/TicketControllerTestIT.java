@@ -167,5 +167,33 @@ class TicketControllerTestIT extends BaseTest {
         ra.andExpect(MockMvcResultMatchers.status().isOk());
     }
 
+    @Test
+    void testGetTicketsByViaje() throws Exception {
+        int viajeId = 9999;
+
+        // Preparar la solicitud
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
+                .get("/api/tickets/viaje/{id}", viajeId)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        // Ejecutar la solicitud y obtener el resultado
+        ResultActions ra = mockMvc.perform(requestBuilder);
+
+        // Verificar que el estado de la respuesta es 200 OK
+        ra.andExpect(MockMvcResultMatchers.status().isOk());
+
+        // Deserializar la respuesta como un ViajeDto
+        List<TicketDto> response = mapper.readValue(
+                ra.andReturn().getResponse().getContentAsString(),
+                new TypeReference<List<TicketDto>>() {
+                });
+
+        // Verificar que el objeto deserializado no es nulo
+        assertNotNull(response);
+
+        // Puedes agregar más aserciones para verificar el contenido del objeto
+        assertEquals(2, response.size());
+    }
+
 
 }
