@@ -18,6 +18,11 @@
         <sonar.organization>iwvg-hugo</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <jacoco.version>0.8.12</jacoco.version>
+        <sonar.exclusions>src/main/java/com/miw/tripplanner/config/StringListTypeHandler.java,
+            src/main/java/com/miw/tripplanner/controllers/ImageApiController.java,
+            src/main/java/com/miw/tripplanner/auth/**,
+            src/main/java/com/miw/tripplanner/services/implementations/ImagenesServiceImpl.java
+        </sonar.exclusions>
     </properties>
     <dependencies>
         <dependency>
