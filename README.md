@@ -43,5 +43,5 @@ cada uno para potenciar el proceso de desarrollo.Esta colaboración maximizó la
 del software producido, al combinar habilidades complementarias y fomentar un entorno
 de constante aprendizaje y adaptación.
 
-## Proyecto
-https://github.com/hugovazquezd/DinDon---TFG/assets/81679649/3c3ddd5f-ceb0-453b-8680-79b89cb1ef72
+## Proyecto  
+[Memoria del proyecto](./VazquezDocampoHugo_delaCalleAlonsoRodrigo_TFM.pdf)
